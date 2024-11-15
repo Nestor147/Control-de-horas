@@ -1,0 +1,85 @@
+<form-layout iconClass="icon-translator" [hiddenTranslationButton]="true" [title]="title">
+  <card-layout [type]="6" [withContent]="true" [onlyContent]="true" [showExpandBtn]="true">
+    <div class="row">
+      <div class="col-lg-5 mb-2">
+        <div class="row">
+          <div class="col-lg-4">
+            <label>{{ 'Group keys:' | translate:'COMMON_V_TRANSLATE.GROUP_KEYS_LABEL' }}</label>
+          </div>
+          <div class="col-lg-8">
+            <form focusFirstInput customId="groupKeys">
+             <search-box navId="groupKeys" [(itemsSource)]="groupList" [isLoading]="isLoadingGroup"
+                          (OnSelectionChanged)="onChangeGroup($event)"
+                          (onFilterChanged)="onSearchGroup($event)"
+                          (OnClearedSelectedItem)="onClearGroup()" componentNav nextComp="target"
+                          [enabled]="!!allTranslationsList">
+                <ng-template let-item="item">
+                  <b>{{item}}</b>
+                </ng-template>
+              </search-box>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-2">
+        <div class="row">
+          <div class="col-lg-5">
+            <label>{{ 'Target language:' | translate:'COMMON_V_TRANSLATE.TARGET_LANGUAGE_LABEL' }}</label>
+          </div>
+          <div class="col-lg-7">
+            <search-box #sbTargetLaguage navId="target" [sbModel]="cultureSelected" [isLoading]="isLoadingSb"
+                        [paginator]="true" [(itemsSource)]="targetLangList"
+                        (OnSelectionChanged)="onChangeTargetLang($event)"
+                   
+                        (OnClearedSelectedItem)="onClearTargetLang()"
+                        componentNav nextComp="search-action-translate" prevComp="groupKeys">
+              <ng-template let-item="item">
+                <b>{{item.Name}}</b> - {{item.DisplayName}}
+              </ng-template>
+            </search-box>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 mb-2 text-center">
+        <button type="button" id="search-action-translate" [ngClass]="canSearch() ? 'ai-search' : 'ai-search'"
+                [disabled]="canSearch()" (click)="searchAndLoad()"
+                componentNav prevComp="target" [navNextOnlyTab]="true" nextComp="main-translator-filter">
+          {{ 'Search' | translate:'COMMON_V_TRANSLATE.SEARCH_BUTTON' }}
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-2">
+        <check-box [(ngModel)]="showReferences" [disabled]="isDisableReferenceChk"
+                   [enabledDescription]="'Show reference language' | translate:'COMMON_V_TRANSLATE.SHOW_REFERENCE_LANGUAGE_LABEL'">
+        </check-box>
+      </div>
+      <div class="col-lg-1 col-md-6 col-sm-12 col-xs-12 mb-2">
+        <combo-box [navId]="'reference'" [enabled]="showReferences" [itemsSource]="referenceLangList"
+                   (OnSelectionChanged)="onChangeReferenceLang($event)"
+                   nextControlNav="target" prevControlNav="groupKeys">
+          <ng-template let-item="item">
+            {{item.Name}} - {{item.DisplayName}}
+          </ng-template>
+        </combo-box>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 mb-2">
+        <check-box [enabledDescription]="'Without translate' | translate:'COMMON_V_TRANSLATE.WITHOUT_TRANSLATE_LABEL'"
+                   [(ngModel)]="showWithoutTranslate" (onValueChanged)="onlyWithouttranslate($event)"
+                   [disabled]="isDisableReferenceChk">
+        </check-box>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12 mb-2 text-center">
+        <button type="button" class="ai-export" (click)="exportSQLFile()" [disabled]="isDisableSave">
+          {{ 'Export' | translate:'COMMON_FORMS.EXPORT_BUTTON' }} SQL
+        </button>
+      </div>
+      <div class="col-lg-1 col-md-4 col-sm-12 col-xs-12 mb-2 text-center">
+        <button type="button" [ngClass]="isSaving ? 'ai-loading' : 'ai-save'"
+                (click)="saveTranslation()" [disabled]="isDisableSave">
+          {{ 'Save' | translate:'COMMON_FORMS.SAVE_' }}
+        </button>
+      </div>
+    </div>
+  </card-layout>
+</form-layout>

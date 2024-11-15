@@ -1,0 +1,778 @@
+/** Global styles */
+
+body,
+app-root > div {
+  background-color: #49494A !important;
+  color: #cacaca !important;
+}
+
+h2,
+h3,
+.f-title {
+  color: #cacaca !important;
+}
+
+.btn.btn-default {
+  color: #272930 !important;
+}
+
+
+/** From card layout */
+
+.cl-main {
+  background: #272930;
+  color: #eaeaea !important;
+}
+
+.cl-main h5 {
+  color: #a0a0a0 !important;
+}
+
+.cl-main hr {
+  border-bottom-color: rgba(255, 255, 255, .2);
+}
+
+.main-card-hover::before {
+  border-bottom-color: var(--aasi-color-base);
+  border-right-color: var(--aasi-color-base);
+}
+
+.main-card-hover::after {
+  border-top-color: var(--aasi-color-base);
+  border-left-color: var(--aasi-color-base);
+}
+
+
+/** From HTML Inputs */
+input:not([type="radio"]):not(.text-ired),
+textarea {
+  color: #ffffff !important;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+textarea {
+  background: #444444 !important;
+  border-color: #a3a3a3 !important;
+}
+
+input:not([type="radio"]):focus,
+textarea:focus {
+  border-color: var(--aasi-color-base) !important;
+}
+
+[type="checkbox"] {
+  background: transparent !important;
+  border-color: var(--aasi-color-base) !important;
+}
+
+[type="checkbox"]:checked::after {
+  border-color: #272930 !important;
+}
+
+[type="checkbox"]:checked:active,
+[type="checkbox"]:not(:checked):active {
+  background-color: #49494a !important;
+}
+
+[type="checkbox"]:disabled:checked {
+  background-color: #404040 !important;
+}
+
+[type="checkbox"]:disabled:checked::after {
+  border-color: var(--aasi-color-gray-border) !important;
+}
+
+
+/** From ComboBox */
+
+.btn.btn-default.w-100.dropdown-toggle {
+  background: #444444 !important;
+  color: #fff !important;
+  border: 1px solid #696969;
+}
+
+.dropdown-menu.scroll-visibility {
+  background: #444444;
+  color: #eaeaea;
+}
+
+/** multiselect */
+.btn.btn-default.dropdown-toggle {
+  background: #444444 !important;
+  color: #fff !important;
+  border: 1px solid #696969;
+}
+
+
+/** From SearchBoxComponent */
+
+.dropdown-menu {
+  background: #444444;
+  color: #eaeaea !important;
+}
+
+.dropdown-item {
+  color: #eaeaea !important;
+}
+
+
+/** From DataGrid */
+.aasi-table .scrollable-content {
+  --td-dashed-color: #5d5d5d;
+}
+
+.aasi-table,
+.aasi-table .tableheader-content,
+.aasi-table .scrollable-content table,
+.aasi-table .scrollable-content table::after {
+  background: #272930 !important;
+}
+
+.aasi-table .tableheader-content table, .table.table {
+  background-color: #272930 !important
+}
+
+.aasi-table .tableheader-content {
+  background-color: var(--aasi-color-base) !important;
+}
+
+.aasi-table .backgroundHeader {
+  background: linear-gradient(to bottom, var(--aasi-color-base) calc(100% - 1px), #272930 6%) !important
+}
+
+.aasi-table .tableheader-content table thead tr th {
+  color: #eaeaea !important
+}
+
+.aasi-table .tableheader-content table thead tr th .to-move::before {
+  background-color: var(--aasi-color-gray-border) !important
+}
+
+.card-field {
+  background: #777 !important
+}
+
+.field-selected {
+  background: var(--aasi-color-base) !important
+}
+
+.card-field:focus {
+  outline: var(--aasi-color-light-base) auto 5px !important
+}
+
+.aasi-table .tableheader-content .filter-indicator,
+.aasi-table.compact .tableheader-content .filter-indicator {
+  border: 1px solid var(--aasi-color-base) !important;
+  border-left: 2px solid var(--aasi-color-base) !important;
+  border-bottom-color: var(--aasi-color-base) !important;
+  width: 2.27rem !important;
+}
+
+.aasi-table .scrollable-content table tbody tr.selected-row,
+.aasi-table .scrollable-content table tbody tr.selected-row-expand,
+.aasi-table .scrollable-content table tbody tr:hover,
+.aasi-table .scrollable-content table tbody tr:focus {
+  background: #444444 !important;
+  color: #ffffff;
+  border: 1px solid var(--aasi-color-base) !important;
+}
+
+.aasi-table .scrollable-content table tbody tr.selected-row td,
+.aasi-table .scrollable-content table tbody tr:hover td,
+.aasi-table .scrollable-content table tbody tr:focus td {
+  border-top: 1px solid var(--aasi-color-base) !important;
+}
+
+
+/** From DataPager */
+
+.page-link {
+  background: #444444;
+}
+
+.page-link:hover, .page-link:focus {
+  background: #777;
+}
+
+.page-item.active .page-link {
+  border-color: #eaeaea;
+}
+
+.page-item.disabled .page-link {
+  background: #cccccc;
+}
+
+
+/** From DatePicker */
+
+.mydp .caltable,
+.mydp .weekdaytitle {
+  background: #444444 !important;
+}
+
+.mydp .weekdaytitle {
+  border-color: #444444 !important;
+  color: #ffffff !important;
+}
+
+.mydp .daycell {
+  color: #cacaca !important;
+}
+
+.mydp .nextmonth {
+  color: #8a8989;
+}
+
+.mydp .tablesingleday:hover {
+  background-color: #444444 !important;
+}
+
+.suggestion-active {
+  background-color: #272930 !important;
+}
+
+.mydp .headerbtn:focus, .mydp .headerbtn:active {
+  color: var(--aasi-color-base) !important;
+}
+
+.mydp .selectorarrow:after {
+  background: #272930 !important;
+}
+
+/** From SearchBoxComponent Style */
+.dp-result {
+  background-color: #444444 !important;
+}
+
+.dp-result li:hover {
+  background-color: var(--aasi-color-base) !important;
+}
+
+/** From TE buttons */
+
+button[class*=tez-] {
+  background-color: #272930;
+  color: #eaeaea;
+  border-color: #444444;
+}
+
+button[class*=tez-][disabled] {
+  background-color: #444444 !important;
+}
+
+
+/** From Modal */
+
+.modal-item {
+  background: #49494a !important;
+}
+
+.modal-content {
+  background: #272930;
+}
+
+.modal-item h2 {
+  background: transparent !important;
+}
+
+
+/** From Layout */
+
+section.menu,
+#navMenuRoot,
+section.menu footer {
+  background: #49494A !important;
+}
+
+section.menu {
+  border-right-color: #272930 !important;
+}
+
+section.menu .search input {
+  padding-left: 45px !important;
+  margin-left: 0 !important;
+}
+
+section.menu .search {
+  background-color: #444 !important;
+}
+
+
+/* #69668 */
+.menu-root iatec-menu-item.active > section,
+.menu-root iatec-menu-item > section:hover,
+.menu-root iatec-menu-item.semi-active > section {
+  background: #272930 !important;
+}
+
+section.menu nav.menu-float {
+  background: #49494ae8 !important;
+  color: #eaeaea !important;
+}
+
+.breadcrumb {
+  background: #49494A !important;
+  color: inherit !important;
+}
+
+nav.menu-float .menu .box-large > a,
+nav.menu-float .menu a {
+  color: #ffffff !important;
+}
+
+a.paint-a div,
+nav.menu-float .menu .box-list ul li a,
+nav.menu-float .menu .box-large ul li a,
+nav.menu-float .menu .box-list-block ul li a {
+  color: #cacaca !important;
+}
+
+.menu-root iatec-menu-item {
+  color: #cacaca !important
+}
+
+
+/** welcome component */
+
+section.content {
+  background: inherit !important;
+}
+
+
+/** Old Spinner **/
+
+.double-bounce1,
+.double-bounce2 {
+  background-color: var(--aasi-color-base);
+}
+
+
+/** Old Card */
+
+single-image .card-block {
+  background-color: #444444 !important;
+}
+
+.card-block img[src=""]:after {
+  background: #cccccc !important;
+  color: #ffffff !important;
+}
+
+.card {
+  background-color: #272930 !important;
+  border: 1px solid #49494a !important;
+}
+
+.card-header {
+  background-color: #272930 !important;
+}
+
+.card-footer {
+  background-color: #272930 !important;
+}
+
+/** Decimal Value component */
+
+.no-unli.positive.pull-right,
+.with-unli.positive.pull-right {
+  color: #ffffff !important;
+}
+
+
+/** From OrderByList */
+
+.order-by-list section ul li:hover {
+  background-color: #49494a !important;
+}
+
+
+/** From SimpleUserFavorites*/
+simple-user-favorite:after {
+  border-color: var(--aasi-color-gray-border) !important;
+}
+
+.fav-menu-card {
+  background: #444 !important;
+}
+
+.fav-item, h5 {
+  color: #fff;
+}
+
+.fav-item b {
+  color: var(--aasi-color-gray-border) !important;
+}
+
+.fav-item.fv-selected b {
+  color: var(--aasi-color-white-base) !important;
+}
+
+/** From Dialogs */
+
+.aasi-dialog .dialog-display {
+  background: #49494A;
+}
+
+.aasi-dialog .dialog-display .text-danger {
+  color: #ff3f3d !important;
+}
+
+.aasi-dialog .dialog-display .expand-header:before {
+  border-top-color: rgba(255, 255, 255, .2) !important;
+}
+
+.aasi-dialog .dialog-display .expand-body {
+  border-bottom: 1px solid rgba(255, 255, 255, .2) !important;
+}
+
+.aasi-dialog .dialog-display hr {
+  border-top-color: rgba(255, 255, 255, .2) !important;
+}
+
+
+/** From Document Viewer */
+
+.card-def-content {
+  background-color: inherit !important;
+}
+
+
+/** From Tabs component */
+
+.nav-item:not(.active):not(.disabled):hover .nav-link {
+  background-color: #444444 !important;
+}
+
+.nav-item:not(.active):not(.disabled):hover .nav-link:before,
+.nav-item:not(.active):not(.disabled):hover .nav-link:after {
+  box-shadow: inset 6px -3px #444444 !important;
+}
+
+.nav-item.disabled a {
+  color: #ffffff !important;
+}
+
+
+/* From Custom Reports column dropdown */
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  background-color: var(--aasi-color-base) !important;
+}
+
+
+/** From Translation Component */
+
+#translation-panel-embedded,
+#translation-panel-embedded .tpanel-header,
+#translation-panel-embedded .tpanel-search,
+.translation-panel .tpanel-body-scroll .tpanel-body,
+.translation-panel .tpanel-body-scroll::-webkit-scrollbar,
+.translation-panel .tpanel-body-scroll::-webkit-scrollbar-thumb,
+.translation-panel .tpanel-body-scroll ul::-webkit-scrollbar-thumb {
+  background: inherit !important;
+}
+
+
+/** From TreeView */
+
+.tree li a {
+  color: #cacaca !important;
+}
+
+.tree ul li:last-child:before {
+  background: inherit !important;
+}
+
+
+/** From CustomReportStyle Component */
+
+custom-report-style-preview .content-center {
+  border-color: #ffffff !important;
+}
+
+custom-report-style-preview .content-center span {
+  color: #ffffff !important;
+}
+
+
+/** From MICR Configuration Component */
+
+.available-tags {
+  color: #ffffff !important;
+}
+
+
+/** From Collapsible Panel */
+
+.collapsible-panel {
+  background-color: transparent !important;
+}
+
+.collapsible-panel .header {
+  border-bottom: 1px solid var(--aasi-color-gray-border);
+}
+
+.collapsible-panel .header .plus:before,
+.collapsible-panel .header .plus:after,
+.collapsible-panel .header .plus.minus:before,
+.collapsible-panel .header .plus.minus:after {
+  background-color: var(--aasi-color-gray-border) !important;
+}
+
+
+/* From Reconciliation View */
+
+.c-two {
+  background-color: #87ceeb;
+  color: #272930;
+}
+
+.c-two .no-unli.positive.pull-right {
+  color: #272930 !important;
+}
+
+.c-three {
+  background-color: #ffe4b5;
+  color: #272930;
+}
+
+.c-three .no-unli.positive.pull-right {
+  color: #272930 !important;
+}
+
+.c-four {
+  background-color: #525252 !important;
+}
+
+.c-six {
+  background-color: #87ceeb;
+  color: #272930;
+}
+
+.c-six .no-unli.positive.pull-right {
+  color: #272930 !important;
+}
+
+.c-seven {
+  background-color: #525252 !important;
+}
+
+.c-eight {
+  background-color: #a8edb8;
+  color: #272930;
+}
+
+.c-eight .no-unli.positive.pull-right {
+  color: #272930 !important;
+}
+
+.c-two:hover .no-unli.positive.pull-right,
+.c-three:hover .no-unli.positive.pull-right,
+.c-six:hover .no-unli.positive.pull-right,
+.c-eight:hover .no-unli.positive.pull-right,
+.c-two:focus .no-unli.positive.pull-right,
+.c-three:focus .no-unli.positive.pull-right,
+.c-six:focus .no-unli.positive.pull-right,
+.c-eight:focus .no-unli.positive.pull-right {
+  color: #ffffff !important;
+}
+
+.couple-striped .aasi-table .scrollable-content table tbody tr:nth-child(4n+1),
+.couple-striped .aasi-table .scrollable-content table tbody tr:nth-child(4n+2) {
+  background-color: #525252 !important;
+}
+
+
+/* For Key Indicators */
+
+.key-option div {
+  color: #ffffff !important;
+}
+
+
+/* For transaction entry */
+
+.transaction-entry-is-editing {
+  background-color: #525252 !important;
+}
+
+#txtDesc {
+  /* (40 rem / 2(font type)) = 20rem */
+  /* 3px = 4px(margin-left) - 1px(input-border) */
+  background: linear-gradient(to right, rgba(var(--aasi-color-rgb-base), .6) calc(20rem + 3px), #444 10%) !important;
+}
+
+
+/* Remittance calculation */
+
+.rc-calculated {
+  color: #272930 !important;
+}
+
+.rc-without-calculated {
+  color: #272930 !important;
+}
+
+.rc-calculated.selected-row,
+.rc-calculated.selected-row .no-unli.positive.pull-right,
+.rc-without-calculated.selected-row,
+.rc-without-calculated.selected-row .no-unli.positive.pull-right,
+.rc-calculated:hover,
+.rc-calculated:focus,
+.rc-without-calculated:hover,
+.rc-without-calculated:focus,
+.rc-calculated:hover .no-unli.positive.pull-right,
+.rc-calculated:focus .no-unli.positive.pull-right,
+.rc-without-calculated:hover .no-unli.positive.pull-right,
+.rc-without-calculated:focus .no-unli.positive.pull-right {
+  color: #ffffff !important;
+}
+
+.rc-without-calculated .no-unli.positive.pull-right,
+.rc-calculated .no-unli.positive.pull-right {
+  color: #272930 !important;
+}
+
+/* For Combo Box */
+.btn-default {
+  border-color: #a3a3a3 !important;
+}
+
+/* For disabled button (global) */
+[class*=ai-][disabled] {
+  background-color: #404040 !important;
+}
+
+/* Power Tools Tabs */
+.ul-ho-active,
+.ul-ho-item:hover {
+  color: #272930;
+}
+
+/* ngx-editor FS */
+
+.ngx-editor-textarea {
+  color: #ffffff !important;
+  background-color: #404040 !important;
+}
+
+.ngx-toolbar, .ngx-editor-textarea span {
+  background-color: #404040 !important;
+}
+
+/* handsontable*/
+.handsontable td {
+  /* background-color: #404040 !important; */
+  color: #272930;
+}
+
+
+/* Power Tools Key Indicators */
+key-indicator-item-list {
+  border-color: var(--aasi-color-gray-border);
+}
+
+key-indicator-item-list:after {
+  opacity: .2;
+}
+
+/* UnPost Journal authorization */
+.authorization > div {
+  background: transparent !important;
+}
+
+/* Tag Editor */
+
+.editor-tag {
+  background-color: var(--aasi-color-gray-border);
+}
+
+.editor-tag .tag-item {
+  background-color: var(--aasi-color-base) !important
+}
+
+.editor-tag .tag-item .tag-item-label {
+  color: #fff !important;
+}
+
+.remove-tag {
+  color: #fff !important;
+}
+
+/* Release Notes */
+release-item [class*="tag-"]:before,
+release-item [class*="tag-"]:after {
+  background: #272930 !important
+}
+
+release-menu release-resume:hover {
+  background: #49494A !important
+}
+
+release-menu span {
+  color: var(--aasi-color-white-base);
+}
+
+release-menu article a:hover {
+  background: #3a3a3a !important
+}
+
+my-account-image-uploader {
+  --cropper-overlay-color: #272930
+}
+
+.psyear label, .psmonth label {
+  --exp-ps-border-color: initial !important;
+}
+
+/* Transaction Entry Operations */
+.te-actions label {
+  color: #eaeaea !important
+}
+
+/* entity-selection */
+.btn-entity {
+  background-color: #272930 !important;
+  color: #fff !important
+}
+
+[toDroppableArea] .droppable-mask {
+  border-color: var(--aasi-color-light-base);
+  background-color: #cccccc99;
+  filter: drop-shadow(2px 4px 6px black);
+  color: var(--aasi-color-light-base)
+}
+
+/* FinancialStatement components */
+fs-book-item {
+  background: #272930 !important
+}
+
+.fs-item-body h1 {
+  color: var(--aasi-color-white-base) !important
+}
+
+fs-page {
+  background: #272930 !important
+}
+
+fs-page:hover, fs-page:focus, fs-page.active {
+  background: #444444 !important
+}
+
+[previewContent]:not(.active):not([disabled]):not(.disabled):hover,
+[previewContent]:not(.active):not([disabled]):not(.disabled):focus,
+[previewContent]:not(.active):not([disabled]):not(.disabled):hover *,
+[previewContent]:not(.active):not([disabled]):not(.disabled):focus * {
+  background: #444444 !important;
+}
+
+[previewContent].disabled, [previewContent].disabled *,
+[previewContent][disabled], [previewContent][disabled] * {
+  background: #404040 !important;
+}
+
+.ngx-editor-grippie {
+  background: #272930 !important
+}

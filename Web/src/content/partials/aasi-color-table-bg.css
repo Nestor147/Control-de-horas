@@ -1,0 +1,38 @@
+.c-two {
+  background-color: #87ceeb;
+}
+
+.c-three {
+  background-color: #ffe4b5;
+}
+
+.c-four {
+  background-color: #d3d3d3;
+}
+
+.c-six {
+  background-color: #87ceeb;
+}
+
+.c-seven {
+  background-color: #d3d3d3;
+}
+
+.c-eight {
+  background-color: #a8edb8;
+}
+
+/* Reconciliation (Reconcilied) stripped */
+.couple-striped .aasi-table .scrollable-content table tbody tr:nth-child(4n+1),
+.couple-striped .aasi-table .scrollable-content table tbody tr:nth-child(4n+2) {
+  background-color: #d3d3d3;
+}
+
+/* Remittance calculation */
+.rc-calculated {
+  background-color: #a9fcf5;
+}
+
+.rc-without-calculated {
+  background-color: #fff491;
+}

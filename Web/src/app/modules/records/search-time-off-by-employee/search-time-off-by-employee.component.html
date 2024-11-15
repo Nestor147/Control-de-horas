@@ -1,0 +1,34 @@
+<form-layout [title]="'Permissions'" iconClass="icon-not-notice-conference">
+ 
+  
+    <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+  
+      <div class="form-group">
+        <data-grid #gridTimeOffs [itemsSource]="TimeOffs" [isLoading]="isLoading"
+                   (onDblClicked)="onDblClicked($event)"  (onGridEnterPress)="onEnterPress($event)">
+          <column field="Employee.Name" filterMatchMode="contains" [header]="'Employee Name'"></column>
+          <column field="TimeOffTypeName" filterMatchMode="contains" [header]="'Time Off Type'"></column>
+          <column field="InitialDateTime" filterMatchMode="contains" [header]="'Initial Date Time'"></column>
+          <column field="EndDateTime" filterMatchMode="contains" [header]="'End Date Time'"></column>
+          <column field="Active" filterMatchMode="contains" [style]="{'text-align':'center'}"[header]="'Active'">
+            <ng-template let-col let-data="rowData"  pTemplate type="checkbox">
+              <input type="checkbox" name="Active" disabled [(ngModel)]="data.Active"/>
+            </ng-template>
+          </column>
+  
+          <column field="InitialCompensationDateTime" filterMatchMode="contains" [header]="'Initial Compensation DateTime'"></column>
+          <column field="EndCompensationDateTime" filterMatchMode="contains" [header]="'End Compensation DateTime'"></column>
+          <column field="RequestDate" filterMatchMode="contains" [header]="'RequestDate'"></column>
+        </data-grid>
+  
+       
+        <data-pager  #pagerOne [itemsCount]="pager.TotalRows" [(itemsByPage)]="pager.RowsByPage" (pageChange)="onPageChange($event);">
+    </data-pager>
+    
+    
+      </div>
+    </card-layout>
+  </form-layout>
+
+
+  

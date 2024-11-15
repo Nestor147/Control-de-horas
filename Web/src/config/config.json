@@ -1,0 +1,17 @@
+{
+  "server": "server name",
+  "appKey": "app name",
+  "apiUrl": "http://localhost:5000",
+  "environment": "DEV",
+  "version": "2.0.0",
+  "build": "009",
+  "sentry-dsn": "",
+  "min-browser-supported": {
+    "Chrome": "68",
+    "Firefox": "58",
+    "Opera": "52",
+    "MS-Edge-Chromium": "76",
+    "IE": "11",
+    "Safari": "11"
+  }
+}

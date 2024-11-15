@@ -1,0 +1,13 @@
+body {
+  background-color: #eceff0 !important;
+}
+
+section.content {
+  background-color: #eceff0;
+}
+
+pre {
+  background: lightgray;
+  padding: 16px
+}
+

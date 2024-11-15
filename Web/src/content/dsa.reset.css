@@ -1,0 +1,193 @@
+.table td,
+.table th {
+    padding: 0.25rem;
+}
+
+.page-item.active .page-link,
+.page-item.active .page-link:focus,
+.page-item.active .page-link:hover {
+    background-color: var(--aasi-color-base) !important;
+    border-color: var(--aasi-color-base) !important;
+}
+
+.table thead th {
+    border-bottom: 2px solid #337ab7;
+}
+
+.btn-sm,
+.btn-group-sm>.btn {
+    padding: 2px 10px;
+}
+
+.production-banner {
+    height: 50px;
+    font-weight: bold;
+    width: 515px;
+    background-color: #337ab7;
+    color: #fff;
+    position: absolute;
+    padding: .7em 3em;
+    box-sizing: border-box;
+    line-height: 1;
+    text-align: center;
+    right: 0;
+    top: 0;
+    -webkit-transform: translate(calc(0.707 * (3.5em - 100%) + 100%), calc(-.707 * 3.5em)) rotate(45deg);
+    transform: translate(calc(0.707 * (3.5em - 100%) + 100%), calc(-.707 * 3.5em)) rotate(45deg);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    font-size: 20px;
+}
+
+.box-container .table.table-striped tbody tr:hover {
+    border-left: 2px solid #337ab7;
+}
+
+.box-container .table.table-striped tbody tr:hover td {
+    background-color: #fff !important;
+}
+
+iatec-layout-header header:nth-child(2) i.fas.fa-angle-down.hidden-sm {
+    display: none;
+}
+
+nav.menu-float .menu .box-list>a,
+nav.menu-float .menu .box-list-block>a {
+    display: flex;
+    align-items: center;
+}
+
+nav.menu-float .menu a div {
+    margin-left: 8px;
+}
+
+a.paint-a div,
+nav.menu-float .menu .box-list ul li a,
+nav.menu-float .menu .box-list-block ul li a {
+    color: var(--aasi-color-base) !important;
+}
+
+
+/* Region and Language codes. */
+
+header.hidden-xs {
+    text-align: center;
+}
+
+header.hidden-xs>aside:first-child {
+    position: relative;
+}
+
+header.hidden-xs>aside:first-child .btn-menu {
+    float: left !important;
+}
+
+header.hidden-xs>aside:first-child div {
+    position: absolute;
+    height: 36px;
+    border-right: 1px solid #ffffff;
+    top: calc(50% - 18px);
+    right: 0;
+}
+
+header.hidden-xs aside.profile {
+    min-width: 250px !important;
+    width: 250px !important;
+}
+
+header.hidden-xs nav {
+    text-align: left;
+}
+
+header.hidden-xs nav .rl-codes {
+    display: inline-flex;
+}
+
+header.hidden-xs nav h5 {
+    text-align: left !important;
+    display: inline-flex;
+    vertical-align: sub;
+    /*font-size: 1.5vw !important;*/
+}
+
+header.hidden-xs nav h5>div>a {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: calc(100vw - 955px);
+}
+
+header.hidden-xs nav .rl-codes div {
+    font-size: 16px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+header.hidden-xs nav .rl-codes div i {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+header.hidden-xs nav .rl-codes div span {
+    /*margin-left: 4px;*/
+}
+
+header.hidden-xs nav .rl-codes div span:before {
+    content: attr(data-name) ": " attr(data-value);
+}
+
+header.hidden-xs nav .rl-codes div:first-child {
+    padding-left: 16px;
+    padding-right: 24px;
+}
+
+header.hidden-xs nav .rl-codes div:last-child {
+    padding-right: 16px;
+    margin-right: 16px;
+    border-right: 1px solid #ffffff;
+}
+
+@media screen and (max-width: 1680px) {
+    header.hidden-xs nav .rl-codes div span:before {
+        content: attr(data-value);
+    }
+    header.hidden-xs nav h5>div>a {
+        width: calc(100vw - 830px);
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    header.hidden-xs nav .rl-codes div {
+        font-size: 14px;
+    }
+    header.hidden-xs nav h5 {
+        font-size: 1.6rem !important;
+    }
+    header.hidden-xs nav h5>div>a {
+        width: calc(100vw - 500px);
+    }
+}
+
+@media only screen and (max-device-width: 1366px) {
+    nav.menu-float[_ngcontent-c11] {
+        width: calc(110vw + 125px) !important;
+    }
+}
+
+
+/** For menu scroll */
+
+section.menu nav::-webkit-scrollbar-thumb,
+section.menu nav div.menu::-webkit-scrollbar-thumb {
+    background: var(--aasi-color-base) !important;
+}
+
+#navMenuRoot {
+    overflow-y: auto !important;
+}
+
+section.menu footer button {
+    display: none !important;
+}

@@ -1,0 +1,21 @@
+.icon-acc-asset {
+  background: var(--url-sprite-acces-control-aans) 0 0 no-repeat;
+}
+.icon-acc-asset-type {
+  background: var(--url-sprite-acces-control-aans) 16.666666666666668% 0 no-repeat;
+}
+.icon-acc-role {
+  background: var(--url-sprite-acces-control-aans) 33.333333333333336% 0 no-repeat;
+}
+.icon-acc-user-entity {
+  background: var(--url-sprite-acces-control-aans) 50% 0 no-repeat;
+}
+.icon-acc-user-system {
+  background: var(--url-sprite-acces-control-aans) 66.66666666666667% 0 no-repeat;
+}
+.icon-acces-control-menu {
+  background: var(--url-sprite-acces-control-aans) 83.33333333333333% 0 no-repeat;
+}
+.icon-rec-asset-permission {
+  background: var(--url-sprite-acces-control-aans) 100% 0 no-repeat;
+}

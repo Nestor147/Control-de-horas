@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Messages>
+<!--#####################  I18NResourceGroupBusiness.cs  #####################-->
+<Message>
+<Name>EmployeeVoice.Business.Exceptions.ResourceNameIsEmptyExceptions</Name>
+<Value>Resource group name is empty.</Value>
+</Message>
+
+
+<Message>
+<Name>EmployeeVoice.Business.Exceptions.ResourceGroupAlreadyExistsExceptions</Name>
+<Value>Resource group already exists.</Value>
+</Message>
+
+<Message>
+	<Name>EmployeeVoice.Business.Exceptions.ResourceGroupAlreadyExistsExceptions</Name>
+	<Value>Resource group already exists.</Value>
+</Message> 
+	
+<Message>
+<Name>EmployeeVoice.Business.Exceptions.TheResourceGroupDoesNotExistExceptions</Name>
+<Value>The resource group does not exist.</Value>
+</Message>
+	<!-- ##################### I18NResourceBusiness.cs ##################### -->
+	<Message>
+		<Name>EmployeeVoice.Business.Exceptions.ResourceNameIsEmptyExceptions</Name>
+		<Value>Resource name is empty.</Value>
+	</Message>
+
+	<Message>
+		<Name>EmployeeVoice.Business.Exceptions.ResourceNameAlreadyExistsExceptions</Name>
+		<Value>Resource name already exists.</Value>
+	</Message>
+
+	<Message>
+		<Name>EmployeeVoice.Business.Exceptions.TheResourceSearchedForDoesNotExistExceptions</Name>
+		<Value>The resource searched for does not exist.</Value>
+	</Message>
+
+	<Message>
+		<Name>EmployeeVoice.Business.Exceptions.TheNameOfTheResourceToBeDeletedDoesNotExistExceptions</Name>
+		<Value>The name of the resource to be deleted does not exist.</Value>
+	</Message>
+
+	<!-- ##################### I18NResourceValueBusiness.cs ##################### -->
+
+	<Message>
+		<Name>EmployeeVoice.Business.Exceptions.ResourceValueNameIsEmptyExceptions</Name>
+		<Value>Resource value name is empty.</Value>
+	</Message>
+
+	<Message>
+		<Name>EmployeeVoice.Business.Exceptions.ResourceValueAlreadyExistsExceptions</Name>
+		<Value>Resource value already exists.</Value>
+	</Message>
+
+	<Message>
+		<Name>EmployeeVoice.Business.Exceptions.TheResourceValueSearchedForDoesNotExistExceptions</Name>
+		<Value>The resource value searched for does not exist.</Value>
+	</Message>
+
+	<Message>
+		<Name>EmployeeVoice.Business.Exceptions.TheNameOfTheResourceValueToBeDeletedDoesNotExistExceptions</Name>
+		<Value>The name of the resource value to be deleted does not exist.</Value>
+	</Message>
+
+
+	
+</Messages>

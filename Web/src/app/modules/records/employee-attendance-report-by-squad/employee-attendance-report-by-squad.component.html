@@ -1,0 +1,56 @@
+<form-layout [title]="'Employees Atendance Reports' " iconClass="icon-not-notice-conference">
+    <card-layout [type]="1" [withContent]="true">
+      <header-actions>
+        <button id="btnPrint" class="ai-print" (click)="printSquadAttendanceReport()" type="button">
+          {{'Print'  }}
+        </button>
+        <button id="btnSearch" class="ai-search" type="submit" (click)="searchEmployeeAttendanceReport()"
+                    componentNav prevComp="cbNotificationStatus" nextComp="btnExportXls" [ngClass]="{'ai-loading':  isLoading}" [disabled]="isLoading">
+              {{'Search'}}
+            </button>
+      </header-actions>
+      <form focusFirstInput>
+        <div class="row">
+          <div class="col-lg-3 mb-1">
+            <label class="col-lg-4">{{'Date Initial:'| translate:'ADM_SEARCH_NOTICE_CONFERENCE_UNION.DATE_INI'}}:</label>
+              <my-date-picker #dateBegin class="col-lg-8" navId="dateBeginPickId" componentNav prevComp="btnExportXls"
+                  nextComp="datEndPickId" [selDate]="dateStringBegin" (dateChanged)="onDateIniChanged($event)">
+              </my-date-picker>
+            </div>
+          <div class="col-lg-3">
+              <label class="col-lg-4" for="dateEnd">{{'Date End:'| translate:'ADM_SEARCH_NOTICE_CONFERENCE_UNION.DATE_END'}}:</label>
+              <my-date-picker #dateEnd class="col-lg-8" navId="datEndPickId" componentNav nextComp="sbEmployeeId" prevComp="dateBeginPickId"
+                   [selDate]="dateStringEnd" (dateChanged)="onDateEndChanged($event)">
+              </my-date-picker>
+            </div>
+            <div class="col-lg-3 d-flex justify-content-between align-items-center">
+              <label class="ms-2">{{'Squads:'}}:</label> 
+
+              <combo-box class="col-lg-8" #cbsquadGroup [(cbModel)]="squadGroup" [itemsSource]="squadsGroup"
+                navId="idsquadGroup" prevControl="idName" nextControl="idIsActive">
+                <ng-template let-item="item"><b>{{item.SquadName}}</b></ng-template>
+              </combo-box>
+            </div>
+          </div>
+      </form>
+  </card-layout>
+  
+    <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="true">
+      <data-grid #gridEmployee [itemsSource]="employeeAttendanceReports" [isLoading]="isLoading" >
+        <column field="SquadName" filterMatchMode="contains" [header]="'SquadName'"></column>
+        <column field="EmployeeId" filterMatchMode="contains" [header]="'EmployeeId'"></column>
+        <column field="Name" filterMatchMode="contains" [header]="'Name'"></column>
+        <column field="WeekNumber" filterMatchMode="contains" [header]="'WeekNumber'"></column>
+        <column field="LiteralDay" filterMatchMode="contains" [header]="'LiteralDay'"></column>
+              <column field="CheckInTime" filterMatchMode="contains" [header]="'CheckInTime'"></column>
+              <column field="CheckInRecord" filterMatchMode="contains" [header]="'CheckInRecord'"></column>
+              <column field="CheckInDifferenceInMinutes" filterMatchMode="contains" [header]="'CheckInDifferenceInMinutes'"></column>
+              <column field="CheckInMessage" filterMatchMode="contains" [header]="'CheckInMessage' "></column>
+              <column field="DepartureTime" filterMatchMode="contains" [header]="'DepartureTime'"></column>
+              <column field="CheckOutRecord" filterMatchMode="contains" [header]="'CheckOutRecord'"></column>
+              <column field="CheckOutDifferenceInMinutes" filterMatchMode="contains" [header]="'CheckOutDifferenceInMinutes'"></column>
+              <column field="CheckOutMessage" filterMatchMode="contains" [header]="'CheckOutMessage'"></column>
+              </data-grid>
+      </card-layout>
+  </form-layout>
+  

@@ -1,0 +1,124 @@
+
+.bold-underline {
+  background: var(--url-sprite-contextual-menu) 0 0 no-repeat
+}
+
+.border-bottom {
+  background: var(--url-sprite-contextual-menu) 3.3333333333333335% 0 no-repeat
+}
+
+.border-left {
+  background: var(--url-sprite-contextual-menu) 6.666666666666667% 0 no-repeat
+}
+
+.border-nones {
+  background: var(--url-sprite-contextual-menu) 10% 0 no-repeat
+}
+
+.border-options {
+  background: var(--url-sprite-contextual-menu) 13.333333333333334% 0 no-repeat
+}
+
+.border-right {
+  background: var(--url-sprite-contextual-menu) 16.666666666666668% 0 no-repeat
+}
+
+.border-top {
+  background: var(--url-sprite-contextual-menu) 20% 0 no-repeat
+}
+
+.bottom-border-bold {
+  background: var(--url-sprite-contextual-menu) 23.333333333333332% 0 no-repeat
+}
+
+.clear-style {
+  background: var(--url-sprite-contextual-menu) 26.666666666666668% 0 no-repeat
+}
+
+.double-bottom-border {
+  background: var(--url-sprite-contextual-menu) 30% 0 no-repeat
+}
+
+.double-bottom-border-bold {
+  background: var(--url-sprite-contextual-menu) 33.333333333333336% 0 no-repeat
+}
+
+.font-style {
+  background: var(--url-sprite-contextual-menu) 36.666666666666664% 0 no-repeat
+}
+
+.font-weight {
+  background: var(--url-sprite-contextual-menu) 40% 0 no-repeat
+}
+
+.insert-page-break {
+  background: var(--url-sprite-contextual-menu) 43.333333333333336% 0 no-repeat
+}
+
+.insert-row-below {
+  background: var(--url-sprite-contextual-menu) 46.666666666666664% 0 no-repeat
+}
+
+.insert-row-up {
+  background: var(--url-sprite-contextual-menu) 50% 0 no-repeat
+}
+
+.merge-cells {
+  background: var(--url-sprite-contextual-menu) 53.333333333333336% 0 no-repeat
+}
+
+.red-color {
+  background: var(--url-sprite-contextual-menu) 56.666666666666664% 0 no-repeat
+}
+
+.remove-file {
+  background: var(--url-sprite-contextual-menu) 60% 0 no-repeat
+}
+
+.row-options {
+  background: var(--url-sprite-contextual-menu) 63.333333333333336% 0 no-repeat
+}
+
+.text-align {
+  background: var(--url-sprite-contextual-menu) 66.66666666666667% 0 no-repeat
+}
+
+.text-align-center {
+  background: var(--url-sprite-contextual-menu) 70% 0 no-repeat
+}
+
+.text-color {
+  background: var(--url-sprite-contextual-menu) 73.33333333333333% 0 no-repeat
+}
+
+.text-decoration {
+  background: var(--url-sprite-contextual-menu) 76.66666666666667% 0 no-repeat
+}
+
+.text_align-left {
+  background: var(--url-sprite-contextual-menu) 80% 0 no-repeat
+}
+
+.text_align-right {
+  background: var(--url-sprite-contextual-menu) 83.33333333333333% 0 no-repeat
+}
+
+.top-border-bold {
+  background: var(--url-sprite-contextual-menu) 86.66666666666667% 0 no-repeat
+}
+
+.vertical-align {
+  background: var(--url-sprite-contextual-menu) 90% 0 no-repeat
+}
+
+.vertical-align-bottom {
+  background: var(--url-sprite-contextual-menu) 93.33333333333333% 0 no-repeat
+}
+
+.vertical-align-middle {
+  background: var(--url-sprite-contextual-menu) 96.66666666666667% 0 no-repeat
+}
+
+.vertical-align-top {
+  background: var(--url-sprite-contextual-menu) 100% 0 no-repeat
+}

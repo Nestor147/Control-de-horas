@@ -1,0 +1,108 @@
+<form-layout [title]="'TimeOff'" iconClass="icon-rec-project">
+    <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+      <header-actions>
+        <button type="button" id="btnSaveId" name="buttonSave"
+                [class.ai-loading]="isLoading" class="ai-save" title="Save" (click)="save()"
+                componentNav prevComp="btnSearchId" [navNextOnlyTab]="true"
+                [disabled]="isLoading || isLoadingDelete"
+                [nextComp]="canDelete() ? 'btnDeleteId' : 'btnSearchId'">
+          {{'Save'}}
+        </button>
+        <button type="button" id="btnDeleteId" class="ai-delete" [disabled]="!canDelete()"
+                [class.ai-loading]="isLoadingDelete"
+                (click)="delete()" componentNav prevComp="btnSaveId" nextComp="btnSearchId" [navNextOnlyTab]="true">
+          {{'Delete'}}
+        </button>
+        <a [routerLink]="['/records/search-time-off']" prevComp="idName" class="ai-search" componentNav id="btnSearchId"
+           prevComp="idDescription" [navNextOnlyTab]="true">
+          {{'Search'}}
+        </a>
+      </header-actions>
+      <form [formGroup]="formulary" errorTailor class="form-horizontal" focusFirstInput>
+     
+
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'Employee:'}}:
+          </label>
+            <search-box class="col-lg-4" 
+            #sbEmployee
+            navId="sbEmployeeId" 
+            [(sbModel)]="TimeOff.Employee"
+            (onFilterChanged)="onEmployeeSearch($event)" 
+            [paginator]="true" 
+            [(itemsSource)]="employees"
+            (OnSelectionChanged)="onEmploeeSelected($event)"
+            (OnClearedSelectedItem)="clearSelectedEmployee()">
+            >
+                <ng-template let-item="item">
+                    {{item.Name}}
+                </ng-template>
+            </search-box>
+        </div>
+
+   
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'TimeOffType:'}}</label>
+          <div class="col-md-4">
+            <select class="form-control" formControlName="TimeOffType">
+              @for (item of TimeOffTypeKeys; track $index) {
+                
+                <option [value]="TimeOffTypeEnum[item]">{{ item }}</option>
+              }
+            </select>
+          </div>
+        </div>
+      
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'InitialDateTime:'}}</label>
+          <div class="col-md-4">
+            <input id="idInitialDateTime" componentNav prevComp="idName" nextComp="btnSaveId" type="datetime-local" name="txtInitialDateTime" class="form-control" formControlName="InitialDateTime"
+                   [(ngModel)]="TimeOff.InitialDateTime" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'EndDateTime:'}}</label>
+          <div class="col-md-4">
+            <input id="idEndDateTime" componentNav prevComp="idName" nextComp="btnSaveId" type="datetime-local" name="txtEndDateTime" class="form-control" formControlName="EndDateTime"
+                   [(ngModel)]="TimeOff.EndDateTime" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'Justification:'}}</label>
+          <div class="col-md-4">
+            <textarea id="idJustification" name="txtJustification" class="form-control" formControlName="Justification"
+                      [(ngModel)]="TimeOff.Justification"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'InitialCompensationDateTime:'}}</label>
+          <div class="col-md-4">
+            <input id="idInitialCompensationDateTime" componentNav prevComp="idName" nextComp="btnSaveId" type="datetime-local" name="txtInitialCompensationDateTime" class="form-control" formControlName="InitialCompensationDateTime"
+                   [(ngModel)]="TimeOff.InitialCompensationDateTime" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'EndCompensationDateTime:'}}</label>
+          <div class="col-md-4">
+            <input id="idEEndCompensationDateTime" componentNav prevComp="idName" nextComp="btnSaveId" type="datetime-local" name="txtEndCompensationDateTime" class="form-control" formControlName="EndCompensationDateTime"
+                   [(ngModel)]="TimeOff.EndCompensationDateTime" />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-3 col-md-4">
+            {{''}}
+          </label>
+          <div class="col-md-8">
+            <button class="ai-save" title="Accept TimeOff" (click)="acceptTimeOff()">
+              {{'Accept'}}
+            </button>
+          </div>
+        </div>
+        
+       
+      </form>
+   
+    </card-layout>
+  </form-layout>
+  

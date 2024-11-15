@@ -1,0 +1,61 @@
+<form-layout [title]="'Employee'" iconClass="icon-rec-project">
+  <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+    <header-actions>
+      <button type="button" id="btnSaveId" name="buttonSave"
+              [class.ai-loading]="isLoading" class="ai-save" title="Save" (click)="save()"
+              componentNav prevComp="btnSearchId" [navNextOnlyTab]="true"
+              [disabled]="isLoading || isLoadingDelete"
+              [nextComp]="canDelete() ? 'btnDeleteId' : 'btnSearchId'" >
+        {{'Save'}}
+      </button>
+      <a [routerLink]="['/records/search-employee']" prevComp="idName" class="ai-search" componentNav id="btnSearchId"
+        prevComp="idDescription" [navNextOnlyTab]="true">
+        {{'Search' }}
+      </a>
+    </header-actions>
+    <form class="form-horizontal" focusFirstInput>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Email:'}}
+        </label>
+        <div class="col-md-4">
+          <input id="idEmployee" componentNav prevComp="btnSaveId" nextComp="idEmail" type="text" name="txtEmail" 
+          class="form-control"  [(ngModel)]="employee.Email" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Name:'}}
+        </label>
+        <div class="col-md-4">
+          <input id="idName" componentNav prevComp="idName"  nextComp="idName" type="text" name="txtName" class="form-control" 
+          [(ngModel)]="employee.Name"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Role:'}}
+        </label>
+        <div class="col-md-4">
+          <combo-box #cbRole [(cbModel)]="employee.Role" [itemsSource]="Roles"
+            navId="idRole" prevControl="idName" nextControl="idIsActive" >
+            <ng-template let-item="item"><b>{{item.Name}}</b></ng-template>
+          </combo-box>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Is Active:'}}
+        </label>
+        <div class="col-sm-1">
+          <div class="col-md-5">
+            <check-box componentNav navId="idIsActive" prevComp="idRole" nextComp= "btnSaveId"  name="IsActive"
+                [(ngModel)]="employee.Active">
+                </check-box>
+          </div>
+        </div>
+      </div>
+    </form>
+    <br/>
+  </card-layout>
+</form-layout>

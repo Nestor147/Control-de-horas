@@ -1,0 +1,44 @@
+<form-layout [title]="'Role' | translate:'ACO_ROLE.TITLE'" iconClass="icon-acc-role">
+  <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+    <header-actions>
+      <button type="button" id="btnSaveId" name="buttonSave" [disabled]="isLoading || isLoadingDelete"
+              [class.ai-loading]="isLoading" class="ai-save" title="Save" (click)="save()"
+              componentNav prevComp="idSymbol" [navNextOnlyTab]="true" nextComp="btnSearchId"
+              [nextComp]="canDelete() ? 'btnDeleteId' : 'btnSearchId'" >
+              {{'Save' | translate:'COMMON_FORMS.SAVE_BUTTON'}}
+      </button>
+      <button type="button" id="btnDeleteId" class="ai-delete" [disabled]="!canDelete()"
+              [class.ai-loading]="isLoadingDelete"
+              (click)="delete()" componentNav prevComp="btnSaveId" nextComp="btnSearchId" [navNextOnlyTab]="true">
+              {{'Delete' | translate:'COMMON_FORMS.DELETE_BUTTON'}}
+      </button>
+      <a [routerLink]="['/access-control/search-role']"  class="ai-search" componentNav id="btnSearchId"
+         prevComp="btnSaveId" nextComp="idName" [navNextOnlyTab]="true">
+         {{'Search' | translate:'COMMON_FORMS.SEARCH_BUTTON' }}
+      </a>
+    </header-actions>
+
+    <form errorTailor class="form-horizontal" focusFirstInput>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Name:' | translate:'ACO_ROLE.NAME_LABEL'}}
+        </label>
+        <div class="col-md-4">
+          <input navId="idName"  prevComp="btnSaveId"  nextComp="idDescription" type="text" name="txbName" class="form-control"
+                 [(ngModel)]="role.Name"   />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Description:' | translate:'ACO_ROLE.DESCRIPTION_LABEL'}}
+        </label>
+        <div class="col-md-4">
+          <input navId="idDescription"  prevComp="idName"  nextComp="btnSaveId" type="text" name="txbDescription" class="form-control"
+                 [(ngModel)]="role.Description"/>
+        </div>
+      </div>
+    </form>
+    <br/>
+  </card-layout>
+</form-layout>
+

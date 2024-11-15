@@ -1,0 +1,9 @@
+@import url('//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+
+/* General base css class for AASI.net Icons */
+.aico::before {
+  font-family: AasiIconFont;
+  font-size: 1rem;
+  line-height: normal;
+  font-style: normal
+}

@@ -1,0 +1,210 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title id="titleId">Browser version unsupported</title>
+  <style>
+    body {
+      background-color: lightgray;
+      display: none;
+    }
+
+    @media only screen and (max-width: 1152px) {
+      table.main {
+        margin-left: 0 !important;
+        left: 0 !important;
+      }
+    }
+
+    @media only screen and (max-height: 600px) {
+      table.main {
+        margin-top: 50px !important;
+        top: 0 !important;
+      }
+    }
+
+    table.main {
+      background: rgb(255, 255, 255);
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -576px;
+      margin-top: -258.5px;
+      transform: translate(50% 50%);
+    }
+
+    .firstTr,
+    .sectionUnsupported {
+      position: relative;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(1, 111, 186);
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .unsupported {
+      position: relative;
+      text-align: -webkit-center;
+      border-right: 2px solid rgb(175, 175, 175);
+      margin-top: 80px;
+      margin-bottom: 50px;
+      width: 570px;
+      padding-top: 215px;
+      padding-bottom: 100px;
+    }
+
+    #browserUnssuportedId {
+      white-space: nowrap;
+      color: rgb(156, 156, 156);
+      font: 24px Arial, sans-serif;
+      text-align: center;
+      width: 100%;
+    }
+
+    .sectionBrowser {
+      padding: 100px 160px 80px 160px;
+    }
+
+    .aasi {
+      color: rgb(1, 111, 186);
+      font: bold 30px Arial, sans-serif;
+      margin: 0;
+    }
+
+    #recommedTitleId {
+      color: rgb(0, 41, 69);
+      font: bold 36px Arial;
+      margin: 0;
+    }
+
+    #recommendMessageId {
+      color: rgb(155, 155, 155);
+      font: 15px Arial, sans-serif;
+      width: 250px;
+      margin: 0 0 12px 0;
+    }
+
+    span {
+      white-space: nowrap;
+      color: rgb(155, 155, 155);
+    }
+
+    .icon-unssuported {
+      width: 196px;
+      height: 129px;
+      background: url('./assets/img/img-unssuported.png') 0 0;
+      position: absolute;
+      top: 23%;
+      left: 33.5%;
+      left: calc(50% - 98px);
+      left: -webkit-calc(50% - 98px);
+      left: -moz-calc(50% - 98px);
+    }
+
+    .icon-warning {
+      width: 100px;
+      height: 100px;
+      background: url(./assets/img/img-unssuported.png) 100% 0%;
+      position: absolute;
+      top: -50px;
+      left: 45.5%;
+      left: calc(50% - 53px);
+      left: -webkit-calc(50% - 53px);
+      left: -moz-calc(50% - 53px);
+
+    }
+
+    .icon {
+      width: 21px;
+      min-width: 21px;
+      height: 23px;
+    }
+
+    .icon-chrome {
+      background: url('./assets/img/img-unssuported.png') 75.5% 100%;
+    }
+
+    .icon-edge {
+      background: url('./assets/img/img-unssuported.png') 85.5% 100%;
+    }
+
+    .icon-opera {
+      background: url('./assets/img/img-unssuported.png') 95.5% 100%;
+    }
+
+    .content-browser {
+      margin: 16px 0;
+      font: 12px Arial, sans-serif;
+      display: flex;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      -ms-flex-align: left;
+      -ms-flex-pack: left;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <table class="main">
+    <tr class="firstTr">
+      <td>
+        <i class="icon-warning"></i>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <section class="sectionUnsupported">
+          <div class="unsupported">
+            <div class="icon-unssuported"></div>
+            <div id="browserUnssuportedId"></div>
+          </div>
+        </section>
+      </td>
+      <td>
+        <section>
+          <div class="sectionBrowser">
+            <p class="aasi">AANS</p>
+            <p id="recommedTitleId"></p>
+            <p id="recommendMessageId"></p>
+            <table class="content-browser">
+              <tr>
+                <td>
+                  <div class="icon icon-chrome"></div>
+                </td>
+                <td>
+                  <span>Google Chrome -&nbsp;</span><a id="chromeDownloadId" target="_blank" href="https://www.google.com/chrome/"></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="icon icon-edge"></div>
+                </td>
+                <td>
+                  <span>Microsoft Edge -&nbsp;</span><a id="edgeDownloadId" href="https://www.microsoft.com/edge/" target="_blank"></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="icon icon-opera"></div>
+                </td>
+                <td>
+                  <span>Opera -&nbsp;</span><a id="operaDownloadId" href="https://www.opera.com/" target="_blank"></a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </section>
+      </td>
+    </tr>
+  </table>
+</body>
+<script src="browser-unssuported.js"></script>
+
+</html>

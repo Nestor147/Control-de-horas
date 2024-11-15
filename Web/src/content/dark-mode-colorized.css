@@ -1,0 +1,59 @@
+/* TODO: Alpha */
+/** Global styles */
+html, body, .fm-main, h2 {
+  background: #49494A !important;
+  color: #cacaca !important;
+}
+
+/** From card layout */
+.cl-main {
+  background: var(--aasi-color-dark-base);
+  color: var(--aasi-color-light-base) !important;
+}
+
+.cl-main h5 {
+  color: #a0a0a0 !important;
+}
+
+.cl-main hr {
+  border-bottom-color: rgba(255, 255, 255, .2);
+}
+
+/** From HTML Inputs */
+input, textarea {
+  background: #444444 !important;
+  color: #ffffff !important;
+}
+
+/** From RadioButton */
+
+/** From CheckBox */
+
+/** From ComboBox */
+.btn.btn-default.w-100.dropdown-toggle {
+  background: #444444 !important;
+  color: #fff !important;
+  border: 1px solid #696969;
+}
+
+/** From SearchBoxComponent */
+
+/** From DataGrid */
+
+/** From DatePicker */
+
+/** From CheckBox */
+
+
+/** From Modal */
+.modal-item {
+  background: #49494a !important;
+}
+
+.modal-content {
+  background: var(--aasi-color-dark-base);
+}
+
+.modal-item h2 {
+  background: transparent !important;
+}

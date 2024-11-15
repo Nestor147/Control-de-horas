@@ -1,0 +1,33 @@
+<form-layout [title]="'Schedule Type'" iconClass="icon-rec-project">
+    <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+      <header-actions>
+        <button type="button" id="btnSaveId" name="buttonSave"
+                [class.ai-loading]="isLoading" class="ai-save" title="Save" (click)="save()"
+                componentNav prevComp="btnSearchId" [navNextOnlyTab]="true"
+                [disabled]="isLoading || isLoadingDelete"
+                [nextComp]="canDelete() ? 'btnDeleteId' : 'btnSearchId'">
+          {{'Save'}}
+        </button>
+        <button type="button" id="btnDeleteId" class="ai-delete" [disabled]="!canDelete()"
+                [class.ai-loading]="isLoadingDelete"
+                (click)="delete()" componentNav prevComp="btnSaveId" nextComp="btnSearchId" [navNextOnlyTab]="true">
+          {{'Delete'}}
+        </button>
+        <a [routerLink]="['/records/search-schedule-type']" prevComp="idName" class="ai-search" componentNav id="btnSearchId"
+           prevComp="idDescription" [navNextOnlyTab]="true">
+          {{'Search'}}
+        </a>
+      </header-actions>
+  
+      <form [formGroup]="formulary" errorTailor class="form-horizontal" focusFirstInput>
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'Name:'}}</label>
+          <div class="col-md-4">
+            <input id="idName" componentNav prevComp="btnSaveId" nextComp="idName" type="text" name="txtName" class="form-control" formControlName="Name"
+                   [(ngModel)]="scheduleType.Name" />
+          </div>
+        </div>
+      </form>
+    </card-layout>
+  </form-layout>
+  

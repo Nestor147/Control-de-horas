@@ -1,0 +1,72 @@
+<form-layout [title]="'Employee Schedule Type'" iconClass="icon-rec-project">
+    <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+      <header-actions>
+        <button type="button" id="btnSaveId" name="buttonSave"
+                [class.ai-loading]="isLoading" class="ai-save" title="Save" (click)="save()"
+                componentNav prevComp="btnSearchId" [navNextOnlyTab]="true"
+                [disabled]="isLoading || isLoadingDelete"
+                [nextComp]="canDelete() ? 'btnDeleteId' : 'btnSearchId'">
+          {{'Save'}}
+        </button>
+        <button type="button" id="btnDeleteId" class="ai-delete" [disabled]="!canDelete()"
+                [class.ai-loading]="isLoadingDelete"
+                (click)="delete()" componentNav prevComp="btnSaveId" nextComp="btnSearchId" [navNextOnlyTab]="true">
+          {{'Delete'}}
+        </button>
+        <a [routerLink]="['/records/search-employee-schedule-type']" prevComp="idName" class="ai-search" componentNav id="btnSearchId"
+           prevComp="idDescription" [navNextOnlyTab]="true">
+          {{'Search'}}
+        </a>
+      </header-actions>
+  
+      <form [formGroup]="formulary" errorTailor class="form-horizontal" focusFirstInput>
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">
+            {{'ScheduleType'}}
+          </label>
+          <div class="col-md-4">
+            <combo-box #cbRole [(cbModel)]="employeeScheduleType.ScheduleType" [itemsSource]="ScheduleTypes"
+              navId="idScheduleType" prevControl="idName" nextControl="idIsActive" >
+              <ng-template let-item="item"><b>{{item.Name}}</b></ng-template>
+            </combo-box>
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'Employee:'}}:
+          </label>
+            <search-box class="col-lg-4" 
+            #sbEmployee
+            navId="sbEmployeeId" 
+            [(sbModel)]="employeeScheduleType.Employee"
+            (onFilterChanged)="onEmployeeSearch($event)" 
+            [paginator]="true" 
+            [(itemsSource)]="employees"
+            (OnSelectionChanged)="onEmploeeSelected($event)"
+            (OnClearedSelectedItem)="clearSelectedEmployee()">
+            >
+                <ng-template let-item="item">
+                    {{item.Name}}
+                </ng-template>
+            </search-box>
+        </div>
+  
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'InitialDate'}}</label>
+          <div class="col-md-4">
+            <input id="idInitialDate" componentNav prevComp="idName" nextComp="btnSaveId" type="datetime-local" name="txtEndDate" class="form-control" formControlName="InitialDate"
+                   [(ngModel)]="employeeScheduleType.InitialDate" />
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'EndDate'}}</label>
+          <div class="col-md-4">
+            <input id="idEndDate" componentNav prevComp="idName" nextComp="btnSaveId" type="datetime-local" name="txtEndDate" class="form-control" formControlName="EndDate"
+                   [(ngModel)]="employeeScheduleType.EndDate" />
+          </div>
+        </div>
+      </form>
+    </card-layout>
+  </form-layout>
+  

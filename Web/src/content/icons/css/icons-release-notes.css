@@ -1,0 +1,6 @@
+.icon-view-release-edit {
+  background: var(--url-sprite-release-notes) 0 0 no-repeat;
+}
+.icon-view-release-menu {
+  background: var(--url-sprite-release-notes) 100% 0 no-repeat;
+}

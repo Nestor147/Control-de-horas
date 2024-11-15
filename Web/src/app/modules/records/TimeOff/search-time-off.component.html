@@ -1,0 +1,58 @@
+<form-layout [title]="'TimeOffs'" iconClass="icon-not-notice-conference">
+    <card-layout [type]="inputLayoutSearch" [showExpandBtn]="false">
+      <header-actions>
+        <label for="txtFilter">
+          {{'Filter by Employee Name:'}}
+        </label>
+  
+        <div class="col-lg-3 form-group">
+          <form focusFirstInput customId="txtFilter">
+            <input id="txtFilter" name="textFilter" type="text" class="form-control" [(ngModel)]="filter"
+                   prevComp="btnSearchAvAccountsNavId" nextComp="btnSearch" (keydown)="searchTimeOff($event)" />
+          </form>
+        </div>
+        <button id="btnSearch" class="ai-search" (click)="searchByFilter()" type="button">
+          {{'Search'}}
+        </button>
+      </header-actions>
+    </card-layout>
+  
+    <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+      <header-actions>
+        <a [routerLink]="['/records/time-off', 0]" class="ai-add">{{'Add'}}</a>
+      </header-actions>
+      <div class="form-group">
+        <data-grid #gridTimeOffs [itemsSource]="TimeOffs" [isLoading]="isLoading"
+                   (onDblClicked)="onDblClicked($event)"  (onGridEnterPress)="onEnterPress($event)">
+          <column field="Employee.Name" filterMatchMode="contains" [header]="'Employee Name'"></column>
+          <column field="TimeOffTypeName" filterMatchMode="contains" [header]="'TimeOff Type'"></column>
+          <column field="InitialDateTime" filterMatchMode="contains" [header]="'Initial Date Time'"></column>
+          <column field="EndDateTime" filterMatchMode="contains" [header]="'End Date Time'"></column>
+          <column field="Active" filterMatchMode="contains" [style]="{'text-align':'center'}"[header]="'Active'">
+            <ng-template let-col let-data="rowData"  pTemplate type="checkbox">
+              <input type="checkbox" name="Active" disabled [(ngModel)]="data.Active"/>
+            </ng-template>
+          </column>
+  
+          <column field="InitialCompensationDateTime" filterMatchMode="contains" [header]="'Initial Compensation DateTime'"></column>
+          <column field="EndCompensationDateTime" filterMatchMode="contains" [header]="'End Compensation DateTime'"></column>
+          <column field="RequestDate" filterMatchMode="contains" [header]="'RequestDate'"></column>
+          <column [headerSize]="18" [header]="'Actions'" [style]="{'text-align':'center'}" [sortable]="false">
+            <ng-template let-col let-data="rowData" pTemplate type="body">
+              <a [routerLink]="['/records/time-off', data.Id]" class="ai-edit">{{'Edit'}}</a>
+              <button class="ai-delete" title="Delete TimeOff" (click)="delete(data.Id)">
+                {{'Delete'}}
+              </button>
+            </ng-template>
+          </column>
+        </data-grid>
+  
+       
+        <data-pager  #pagerOne [itemsCount]="pager.TotalRows" [(itemsByPage)]="pager.RowsByPage" (pageChange)="onPageChange($event);">
+    </data-pager>
+    
+    
+      </div>
+    </card-layout>
+  </form-layout>
+  

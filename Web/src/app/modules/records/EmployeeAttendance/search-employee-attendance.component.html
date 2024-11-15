@@ -1,0 +1,61 @@
+<form-layout [title]="'Employee Attendance'" iconClass="icon-rec-attendance">
+  <card-layout [type]="inputLayoutSearch" [showExpandBtn]="false" [withContent]="true">
+    <header-actions>
+
+      <button id="btnSearch" class="ai-search" (click)="getEmpleyeeAtendaByRangeDate()" type="button" [disabled]="isLoading">
+        {{ 'Search' }}
+      </button>
+      <button
+  id="btnSync"
+  class="ml-2"
+  [class.ai-loading]="isSyncing"
+  (click)="handleSync()"
+  type="button"
+  [disabled]="isLoading || isSyncing">
+  {{ syncButtonLabel }}
+</button>
+
+    </header-actions>
+
+    <!-- Formulario para seleccionar fechas y filtrar por nombre -->
+    <form focusFirstInput>
+      <div class="row">
+        <div class="col-lg-3 mb-1">
+          <label class="col-lg-4">{{ 'Date Initial:' | translate:'ADM_SEARCH_NOTICE_CONFERENCE_UNION.DATE_INI' }}:</label>
+          <my-date-picker #dateBegin class="col-lg-8" [selDate]="dateStringBegin" (dateChanged)="onDateIniChanged($event)">
+          </my-date-picker>
+        </div>
+
+        <div class="col-lg-3">
+          <label class="col-lg-4" for="dateEnd">{{ 'Date End:' | translate:'ADM_SEARCH_NOTICE_CONFERENCE_UNION.DATE_END' }}:</label>
+          <my-date-picker #dateEnd class="col-lg-8" [selDate]="dateStringEnd" (dateChanged)="onDateEndChanged($event)">
+          </my-date-picker>
+        </div>
+
+        <div class="col-lg-3 d-flex">
+          <label class="col-lg-8 mr-1">{{ 'Filter by name :' }}</label>
+          <input id="txtFilter" name="textFilter" type="text" class="col-lg-4 form-control" [(ngModel)]="filter" />
+        </div>
+      </div>
+    </form>
+  </card-layout>
+
+  <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+    <div class="form-group">
+    
+      <data-grid
+        #gridProjects
+        [itemsSource]="employeeAttendances"
+        [isLoading]="isLoading"
+        (onDblClicked)="onDblClicked($event)"
+        (onGridEnterPress)="onEnterPress($event)">
+        <column field="Employee.Name" filterMatchMode="contains" [header]="'Employee Name'"></column>
+        <column field="AttendanceDateTime" filterMatchMode="contains" [header]="'Attendance Date Time'"></column>
+      </data-grid>
+
+      <!-- Paginación -->
+      <data-pager  #pagerOne [itemsCount]="pager.TotalRows" [(itemsByPage)]="pager.RowsByPage" (pageChange)="onPageChange($event);">
+      </data-pager>
+    </div>
+  </card-layout>
+</form-layout>

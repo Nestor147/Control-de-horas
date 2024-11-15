@@ -1,0 +1,32 @@
+<form-layout [title]="title" iconClass="icon-translator">
+  <card-layout withContent="true" [type]="7">
+    <header-actions>
+      <button type="button" class="ai-export" (click)="exportAsSqlFile()" [disabled]="isExporting" [class.ai-loading]="isExporting">
+        {{'Export'| translate:'COMMON_FORMS.EXPORT_BUTTON'}}
+      </button>
+    </header-actions>
+    <section>
+      <h5>
+        {{'Type of script to export'| translate:'SHE_TRANSLATION_EXPORTER.EXPORTER_SUBTITLE'}}
+      </h5>
+      <div class="radio">
+        <label for="override">
+          <input id="override" type="radio" name="exporter" (change)="setTypeExportation(exportOpts.Override)" checked/>
+          <span>{{'Override'| translate:'SHE_TRANSLATION_EXPORTER.OVERRIDE_OPTION'}}</span>
+        </label>
+      </div>
+      <div class="radio">
+        <label for="append">
+          <input id="append" type="radio" name="exporter" (change)="setTypeExportation(exportOpts.Append)"/>
+          <span>{{'Append'| translate:'SHE_TRANSLATION_EXPORTER.APPEND_OPTION'}}</span>
+        </label>
+      </div>
+      <div class="radio">
+        <label for="update">
+          <input id="update" type="radio" name="exporter" (change)="setTypeExportation(exportOpts.Update)"/>
+          <span>{{'Update'| translate:'SHE_TRANSLATION_EXPORTER.UPDATE_OPTION'}}</span>
+        </label>
+      </div>
+    </section>
+  </card-layout>
+</form-layout>

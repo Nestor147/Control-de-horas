@@ -1,0 +1,64 @@
+<form-layout [title]="'Employee' | translate:'ACO_USER_SYSTEM.TITLE'" iconClass="icon-acc-user-system">
+  <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+    <header-actions>
+      <button type="button" id="btnSaveId" name="buttonSave" [disabled]="isLoading || isLoadingDelete"
+        [class.ai-loading]="isLoading" class="ai-save" title="Save" (click)="save()" componentNav prevComp="btnDeleteId"
+        [navNextOnlyTab]="true" nextComp="btnSearchId" [nextComp]="canDelete() ? 'btnDeleteId' : 'btnSearchId'">
+        {{'Save' | translate:'COMMON_FORMS.SAVE_BUTTON'}}
+      </button>
+      <button type="button" id="btnDeleteId" class="ai-delete" [disabled]="!canDelete()"
+        [class.ai-loading]="isLoadingDelete" (click)="delete()" componentNav prevComp="btnSaveId" nextComp="btnSearchId"
+        [navNextOnlyTab]="true">
+        {{'Delete' | translate:'COMMON_FORMS.DELETE_BUTTON'}}
+      </button>
+      <a [routerLink]="['/access-control/search-employee']" class="ai-search" componentNav id="btnSearchId"
+        prevComp="btnDeleteId" nextComp="idEmail" [navNextOnlyTab]="true">
+        {{'Search' | translate:'COMMON_FORMS.SEARCH_BUTTON' }}
+      </a>
+    </header-actions>
+    <form class="form-horizontal" focusFirstInput>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Email:' | translate:'ACO_USER_SYSTEM.EMAIL_LABEL'}}
+        </label>
+        <div class="col-md-4">
+          <input id="idEmail" componentNav prevComp="btnSaveId" nextComp="idName" type="text" name="txbEmail"
+            class="form-control" [(ngModel)]="employee.Email" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Name:' | translate:'ACO_USER_SYSTEM.NAME_LABEL'}}
+        </label>
+        <div class="col-md-4">
+          <input id="idName" componentNav prevComp="idEmail" nextComp="idRole" type="text" name="txbName"
+            class="form-control" [(ngModel)]="employee.Name" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Role:' | translate:'ACO_USER_SYSTEM.ROLE_LABEL'}}
+        </label>
+        <div class="col-md-4">
+          <combo-box #cbRole [(cbModel)]="employee.Role" [itemsSource]="Roles"
+            navId="idRole" prevControl="idName" nextControl="idIsActive" >
+            <ng-template let-item="item"><b>{{item.Name}}</b></ng-template>
+          </combo-box>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Is Active:' | translate:'ACO_USER_SYSTEM.IS_ACTIVE_LABEL'}}
+        </label>
+        <div class="col-sm-1">
+          <div class="col-md-5">
+            <check-box componentNav navId="idIsActive" prevComp="idRole" nextComp= "btnSaveId"  name="IsActive"
+                [(ngModel)]="employee.active">
+                </check-box>
+          </div>
+        </div>
+      </div>
+    </form>
+    <br />
+  </card-layout>
+</form-layout>

@@ -1,0 +1,49 @@
+<form-layout [title]="'Employees'" iconClass="icon-not-notice-conference">
+  <card-layout [type]="inputLayoutSearch" [showExpandBtn]="false">
+    <header-actions>
+      <label for="txtFilter">{{'Filter by Name and Email:'}}</label>
+      <div class="col-lg-3 form-group">
+        <form focusFirstInput customId="txtFilter">
+          <input id="txtFilter" name="textFilter" type="text" class="form-control" [(ngModel)]="filter" prevComp="btnSearchAvAccountsNavId" nextComp="btnSearch" (keydown)="searchEmployee($event)" />
+        </form>
+      </div>
+      <button id="btnSearch" class="ai-search" (click)="searchByFilter()" type="button">{{ 'Search' }}</button>
+
+      <button id="btnSync" class="ml-2" [class.ai-loading]="isSyncing" (click)="handleSync()" type="button" [disabled]="isLoading || isSyncing">
+        {{ syncButtonLabel }}
+      </button>
+    </header-actions>
+  </card-layout>
+
+  <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+    <div class="form-group">
+      <data-grid 
+      #gridProjects 
+      [itemsSource]="employees" 
+      [isLoading]="isLoading" 
+      (onDblClicked)="onDblClicked($event)" 
+      (onGridEnterPress)="onEnterPress($event)">
+        <column field="Email" filterMatchMode="contains" [header]="'Email'"></column>
+        <column field="Name" filterMatchMode="contains" [header]="'Name'"></column>
+        <column field="Active" filterMatchMode="contains" [style]="{'text-align':'center'}" [header]="'Active'">
+          <ng-template let-col let-data="rowData" pTemplate type="checkbox">
+            <input type="checkbox" name="Active" disabled [(ngModel)]="data.Active" />
+          </ng-template>
+        </column>
+        <column field="Role.Name" filterMatchMode="contains" [header]="'RoleId'"></column>
+        <column [headerSize]="18" [header]="'Actions'" [style]="{'text-align':'center'}" [sortable]="false">
+          <ng-template let-col let-data="rowData" pTemplate type="body">
+            <a [routerLink]="['/records/employee', data.Id]" class="ai-edit"> {{ 'Edit' }} </a>
+          </ng-template>
+        </column>
+      </data-grid>
+      <data-pager 
+      #pagerOne 
+      [itemsCount]="pager.TotalRows" 
+      [(itemsByPage)]="pager.RowsByPage" 
+      (pageChange)="onPageChange($event)">
+    </data-pager>
+    
+    </div>
+  </card-layout>
+</form-layout>

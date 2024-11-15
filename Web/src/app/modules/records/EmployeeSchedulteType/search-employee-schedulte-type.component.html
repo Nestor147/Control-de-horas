@@ -1,0 +1,44 @@
+<form-layout [title]="'Employee Schedule Types'" iconClass="icon-not-notice-conference">
+  <card-layout [type]="inputLayoutSearch" [showExpandBtn]="false">
+    <header-actions>
+      <label for="txtFilter">
+        {{'Filter by Schedule Type Name and Employee Name:'}}
+      </label>
+
+      <div class="col-lg-3 form-group">
+        <form focusFirstInput customId="txtFilter">
+          <input id="txtFilter" name="textFilter" type="text" class="form-control" [(ngModel)]="filter"
+                 prevComp="btnSearchAvAccountsNavId" nextComp="btnSearch" (keydown)="searchEmployeeScheduleType($event)" />
+        </form>
+      </div>
+      <button id="btnSearch" class="ai-search" (click)="searchByFilter()" type="button">
+        {{'Search'}}
+      </button>
+    </header-actions>
+  </card-layout>
+
+  <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+    <header-actions>
+      <a [routerLink]="['/records/employee-schedule-type', 0]" class="ai-add">{{'Add'}}</a>
+    </header-actions>
+    <div class="form-group">
+      <data-grid #gridEmployeeScheduleTypes [itemsSource]="employeeScheduleTypes" [isLoading]="isLoading"
+                 (onDblClicked)="onDblClicked($event)" (onGridEnterPress)="onEnterPress($event)">
+        <column field="ScheduleType.Name" filterMatchMode="contains" [header]="'Schedule Type Name'"></column>
+        <column field="Employee.Name" filterMatchMode="contains" [header]="'Employee Name'"></column>
+        <column field="InitialDate" filterMatchMode="contains" [header]="'InitialDate'"></column>
+        <column field="EndDate" filterMatchMode="contains" [header]="'EndDate'"></column>
+        <column [headerSize]="18" [header]="'Actions'" [style]="{'text-align':'center'}" [sortable]="false">
+          <ng-template let-col let-data="rowData" pTemplate type="body">
+            <a [routerLink]="['/records/employee-schedule-type', data.Id]" class="ai-edit">{{'Edit'}}</a>
+            <button class="ai-delete" title="Delete Employee Schedule Type" (click)="delete(data.Id)">
+              {{'Delete'}}
+            </button>
+          </ng-template>
+        </column>
+      </data-grid>
+
+      <data-pager #pagerOne [itemsCount]="pager.TotalRows" [(itemsByPage)]="pager.RowsByPage" (pageChange)="onPageChange($event)"></data-pager>
+    </div>
+  </card-layout>
+</form-layout>

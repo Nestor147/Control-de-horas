@@ -1,0 +1,61 @@
+<form-layout [title]="'Daily Schedule'" iconClass="icon-not-notice-conference">
+  <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+    <header-actions>
+      <button type="button" id="btnSaveId" name="buttonSave"
+        [class.ai-loading]="isLoading" class="ai-save" title="Save" (click)="save()"
+        componentNav prevComp="btnSearchId" [navNextOnlyTab]="true"
+        [disabled]="isLoading || isLoadingDelete"
+        [nextComp]="canDelete() ? 'btnDeleteId' : 'btnSearchId'">
+        {{'Save'}}
+      </button>
+      <button type="button" id="btnDeleteId" class="ai-delete" [disabled]="!canDelete()"
+        [class.ai-loading]="isLoadingDelete"
+        (click)="delete()" componentNav prevComp="btnSaveId" nextComp="btnSearchId" [navNextOnlyTab]="true">
+        {{'Delete'}}
+      </button>
+      <a [routerLink]="['/records/search-daily-schedule']" prevComp="idName" class="ai-search" componentNav id="btnSearchId"
+        prevComp="idDescription" [navNextOnlyTab]="true">
+        {{'Search'}}
+      </a>
+    </header-actions>
+    <form [formGroup]="formulary" errorTailor class="form-horizontal" focusFirstInput>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">
+          {{'Shedule Type:'}}
+        </label>
+        <div class="col-md-4">
+          <combo-box #cbRole [(cbModel)]="dailySchedule.ScheduleType" [itemsSource]="scheduleTypes"
+            navId="idScheduleType" prevControl="idName" nextControl="idIsActive" >
+            <ng-template let-item="item"><b>{{item.Name}}</b></ng-template>
+          </combo-box>
+        </div>
+      </div>
+<div class="form-group row">
+  <label class="col-md-3 offset col-md-4">Day of Week: </label>
+  <div class="col-md-4">
+    <select class="form-control" formControlName="DayEnum">
+      @for (item of daysOfWeekKeys; track $index) {
+        
+        <option [value]="daysOfWeekEnum[item]">{{ item }}</option>
+      }
+    </select>
+  </div>
+</div>
+      <div class="form-group row">
+        <label class="col-md-3 offset col-md-4">{{'Initial Time:'}}</label>
+        <div class="col-md-4">
+          <input id="idInitialTime" componentNav prevComp="idName" nextComp="idInitialTime" type="time" name="txtInitialTime" class="form-control" formControlName="InitialTime"
+            [(ngModel)]="dailySchedule.InitialTime" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'End Time:'}}</label>
+          <div class="col-md-4">
+            <input id="idEndTime" componentNav prevComp="idName" nextComp="idEndTime" type="time" name="txtEndTime" class="form-control" formControlName="EndTime"
+              [(ngModel)]="dailySchedule.EndTime" />
+            </div>
+          </div>
+        </form>
+      </card-layout>
+    </form-layout>

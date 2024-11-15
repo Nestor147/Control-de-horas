@@ -1,0 +1,45 @@
+<ng-progress></ng-progress>
+<simple-notifications [options]="options"></simple-notifications>
+<iatec-layout-css></iatec-layout-css>
+<iatec-layout-header
+  [currentEntity]="currentEntity"
+  [profile]="globalSession$.userAsProfileModel"
+  (menuChange)="onMenuChange($event)"
+  (signOut)="logoutUser()"
+  [labelAccount]="'My Account'| translate:'ACO_USER_INFO.TITLE'"
+  [labelSignOut]="'Sign Out'| translate:'ACO_USER_INFO.SING_OUT_TITLE'"
+  logoURL="assets/img/timesheet.svg">
+</iatec-layout-header>
+
+<iatec-layout-menu #mainMenu
+  (clickMenuEvent)="onClickMenu($event)"
+  [ngModel]="this.globalSession$.currentMenu|async"
+  (clickFavorite)="onClickFavorite()"
+  [labelFavorite]="'Favorite'| translate: 'COMMON_LAYOUT.FAVORITE_MENU_LABEL'"
+  [copyrightLabel]="'Seventh-day Adventist Church North American Division' | translate:'ACO_USER_INFO.FOOTER_TITLE' "
+  [labelVersion]="'Version'| translate:'COMMON_LAYOUT.VERSION_LABEL'"
+  [labelTermsOfUse]="'Terms of Use'| translate:'COMMON_LAYOUT.TERMS_OF_USE_LABEL'"
+  [labelPlaceholder]="'Type your search here' | translate:'ACO_USER_INFO.TYPE_SEARCH_TITLE'" [parentId]="1" iconClassLarge="aasi-icon-lg" version="1.0.1.0">
+</iatec-layout-menu>
+
+
+<iatec-layout-content>
+  <section style="padding-top: 16px;">
+    <router-outlet (activate)="reorderMainComponents($event)"></router-outlet>
+  </section>
+  @if (appService.loadingContent | async) {
+    <div id="full-content" class="full-content app-loader">
+      <div class="aasi-loader">
+        <div class="circle"></div>
+        <div class="part-1"></div>
+        <div class="part-2"></div>
+        <div class="part-3"></div>
+        <div class="part-4"></div>
+        <div class="part-5"></div>
+        <div class="part-6"></div>
+      </div>
+    </div>
+  }
+</iatec-layout-content>
+<a-modal></a-modal>
+

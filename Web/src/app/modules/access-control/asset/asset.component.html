@@ -1,0 +1,112 @@
+<form-layout [title]="'Asset'| translate:'ACO_ASSET.TITLE'" iconClass="icon-acc-asset">
+  <fieldset>
+    <card-layout [type]="inputLayout" [withContent]="true">
+      <header-actions>
+        <button name="buttonSave" [disabled]="isLoading || isLoadingDelete" [ngClass]="{'ai-loading': isLoading}" class="ai-save" type="button" (click)="save()" id="btnSave"
+                prevControlNav="chkIsGlobal">{{'Save' | translate:'COMMON_FORMS.SAVE_BUTTON'}}
+        </button>
+        <button type="button" class="ai-delete" [disabled]="isLoading || isLoadingDelete || !canDelete()" [ngClass]="{'ai-loading': isLoadingDelete}" (click)="delete()">
+          {{'Delete' | translate:'COMMON_FORMS.DELETE_BUTTON'}}
+        </button>
+        <a [routerLink]="['/access-control/search-asset']" class="ai-search">
+          {{'Search' | translate:'COMMON_FORMS.SEARCH_BUTTON' }}</a>
+      </header-actions>
+      <form class="form-horizontal" focusFirstInput>
+        <div class="row mb-1" >
+          <div class="col-lg-3">
+              <div class="form-group row">
+                <label class="col-lg-4">{{ 'Code:' | translate:'ACO_ASSET.CODE_LABEL'}}</label>
+                <div class="col-lg-8">
+                    <input type="text" name="Code" class="form-control" [(ngModel)]="selectedAsset.Code" id="txtCode"
+                      nextControlNav="txtName" autocomplete="off"/>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group row">
+              <label class="col-lg-4">{{ 'Name:' | translate:'ACO_ASSET.NAME_LABEL'}}</label>
+              <div class="col-lg-8">
+                <input type="text" name="Name" class="form-control" [(ngModel)]="selectedAsset.Name" id="txtName"
+                nextControlNav="txtDisplayName" prevControlNav="txtCode" autocomplete="off"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group row">
+              <label class="col-lg-4">{{ 'Display Name:'| translate:'ACO_ASSET.DISPLAY_NAME_LABEL' }}</label>
+              <div class="col-lg-8">
+                <input id="txtDisplayName"  type="text"
+                   name="DisplayName" class="form-control" [(ngModel)]="selectedAsset.DisplayName" autocomplete="off"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group row">
+              <label class="col-lg-4">{{ 'Asset Type:' | translate:'ACO_ASSET.ASSET_TYPE_LABEL' }}</label>
+              <div class="col-lg-8">
+                <search-box #sbAssetType navId="sbAssetType"
+                [(itemsSource)]="assetTypeList" (onFilterChanged)="onAssetTypeSearch($event)" (OnSelectionChanged)="onAssetTypeSearchId($event)"
+                [(sbModel)]="selectedAsset.AssetType">
+                  <ng-template let-item="item">
+                    {{item.Name}}
+                  </ng-template>
+                </search-box>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-1" >
+          <div class="col-lg-3">
+              <div class="form-group row">
+                <label class="col-lg-4">{{ 'IconClass:' | translate:'ACO_ASSET.ICONCLASS_LABEL'}}</label>
+              <div class="col-lg-8">
+                <input type="text" name="IconClass" class="form-control" [(ngModel)]="selectedAsset.IconClass" id="txtIconClass"
+                autocomplete="off"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group row">
+              <label class="col-lg-4">{{ 'RouterLink:' | translate:'ACO_ASSET.ROUTERLINK_LABEL'}}</label>
+              <div class="col-lg-8">
+                <input id="txtRouterLink"type="text"
+                   name="RouterLink" class="form-control" [(ngModel)]="selectedAsset.RouterLink" autocomplete="off"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group row">
+              <label class="col-lg-4">{{ 'TranslationKey:' | translate:'ACO_ASSET.TRANSLATIONKEY_LABEL'}}</label>
+              <div class="col-lg-8">
+                <input id="txtTranslationKey"  type="text"
+                   name="TranslationKey" class="form-control" [(ngModel)]="selectedAsset.TranslationKey" autocomplete="off"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group row">
+              <label class="col-lg-4">{{ 'Group Name:' | translate:'ACO_ASSET.GROUP_NAME_LABEL'}}</label>
+              <div class="col-lg-8">
+                <input id="txtGroupName"  type="text"
+                   name="GroupName" class="form-control" [(ngModel)]="selectedAsset.GroupName" autocomplete="off"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-1" >
+          <div class="col-lg-3">
+            <div class="form-group row">
+              <label class="col-lg-4">{{ 'Global:' | translate:'ACO_ASSET.GLOBAL_LABEL'}}</label>
+            <div class="col-lg-2">
+              <check-box name="chkIsGlobal" #chkGlobal
+              nextControlNav="btnSave" [(ngModel)]="selectedAsset.IsGlobal"
+              [enabledDescription]="">
+                 </check-box>
+            </div>
+          </div>
+        </div>
+        </div>
+      </form>
+    </card-layout>
+  </fieldset>
+</form-layout>

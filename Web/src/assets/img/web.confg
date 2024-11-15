@@ -1,0 +1,14 @@
+<configuration>
+ <system.webServer>      
+    <security>
+      <authentication>          
+        <anonymousAuthentication enabled="true"/>
+      </authentication>       
+    </security>
+    </system.webServer>
+  <system.web>
+    <authorization>
+      <allow users="*"/>
+    </authorization>
+  </system.web>
+</configuration>

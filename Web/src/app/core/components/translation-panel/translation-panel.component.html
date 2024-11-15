@@ -1,0 +1,93 @@
+<section [id]="isEmbedded ? 'translation-panel-embedded' : 'translation-panel'" class="translation-panel" iconClass="icon-translator">
+  <div class="tpanel-header">
+    <figure>
+      <div class="img"></div>
+    </figure>
+    <h4>{{'Translate'| translate:'COMMON_TRANSLATE_PANEL.TRANSLATE_TITLE'}}</h4>
+    <div class="language-description">
+      <label>{{translator$.currentLang|uppercase}}</label>
+      <div class="img" [attr.data-language]="translator$.currentLang"></div>
+    </div>
+    <button type="button" id="save-translation" class="ai-save" [disabled]="emptyTranslationList()" (click)="saveTranslation()">
+      {{'Save'| translate:'COMMON_TRANSLATE_PANEL.SAVE_BUTTON'}}
+    </button>
+    <button type="button" class="ai-updater" (click)="loadTranslation()" [disabled]="emptyTranslationList()" style="left: 0; width: max-content;">
+      {{'Load'| translate:'COMMON_TRANSLATE_PANEL.LOAD_BUTTON'}}
+    </button>
+  </div>
+  <div class="tpanel-search">
+    <h6>{{getViewName()}}</h6>
+    @if (isEmbedded) {
+      <label for="main-translator-filter" class="embedded-title">{{'Search in group'| translate:'COMMON_TRANSLATE_PANEL.SEARCH_GROUP_LABEL'}}:</label>
+    }
+    <input id="main-translator-filter" type="search" title="Search key translation" class="form-control" [disabled]="emptyTranslationList()"
+      [(ngModel)]="searchValue" (keyup)="searchInCopyList()" componentNav [prevComp]="isEmbedded?'search-action-translate':''" [navNextOnlyTab]="true" (onNextNavigation)="setFocusToMainList()" (breakNavWithDownArrow)="setFocusToMainList()">
+      @if (!isEmbedded) {
+        <div class="options">
+          <div class="form-group">
+            <check-box [enabledDescription]="'Without translate'| translate:'COMMON_TRANSLATE_PANEL.WITHOUT_TRANSLATE_LABEL'" [(ngModel)]="showWithoutTranslate" (onValueChanged)="filterByStatus($event)"
+            [disabled]="emptyTranslationList()"></check-box>
+          </div>
+          <div class="form-group">
+            <check-box [enabledDescription]="'Show reference language'| translate:'COMMON_TRANSLATE_PANEL.SHOW_REFERENCE_LANGUAGE_LABEL'" [(ngModel)]="showReferences" (onValueChanged)="showReferencesChange($event)"
+            [disabled]="emptyTranslationList()"></check-box>
+          </div>
+        </div>
+      }
+    </div>
+    <!--
+    <div class="tpanel-body-scroll">
+      <section class="tpanel-body" *ngIf="(renderTranslationList && renderTranslationList.length > 0); else emptyTpl">
+        <article class="tpanel-section" *ngFor="let resource of renderTranslationList">
+          <div class="tpanel-section-header">
+            <i class="fa fa-tag"></i>
+            <label [title]="getNormalizedSectionName(resource[0])" [toClipboard]="resource[0]" (onCopyToClipboardSuccess)="clipSuccess()" (onCopyToClipboardError)="clipError()">
+            {{getNormalizedSectionName(resource[0])}}</label> ({{resource[1].length}})
+          </div>
+
+          <div>
+            <div class="tpanel-form-group" *ngFor="let translation of resource[1]; let i = index" [style.transform]="(!showReferences && isEmbedded)?'translateX(10%)':'translateX(0)'">
+              -->
+            <!--[ngStyle]="{-->
+            <!--'-ms-grid-columns':(showReferences && isEmbedded)?'(1fr)[3]':'(1fr)[2]',-->
+            <!--'grid-template-columns':(showReferences && isEmbedded)?'repeat(3, 1fr)':'repeat(2, 1fr)'-->
+            <!--}"-->
+            <!--&gt;-->
+      <!--
+            <label [title]="translation.ResourceFullName">{{translation.ResourceName}}:</label>
+            <input *ngIf="isEmbedded && showReferences && translator$.getReferenceOf(translation.ResourceFullName, sourceLanguage)" type="text" class="form-control language-reference"
+                   [value]="translator$.getReferenceOf(translation.ResourceFullName, sourceLanguage)" disabled>
+
+                <input title="" type="text" class="form-control" [(ngModel)]="translation.ResourceValue" (keydown)="ifEnterPress($event)" [attr.data-nav-index]="i">
+                <small *ngIf="!isEmbedded && showReferences && translator$.getReferenceOf(translation.ResourceFullName, sourceLanguage)" class="form-text text-muted">
+                  {{translator$.getReferenceOf(translation.ResourceFullName, sourceLanguage)}}
+                </small>
+                <button type="button" class="ai-clear" (click)="clear(i)"></button>
+              </div>
+              <div class="tpanel-form-group d-block" *ngIf="resource[1] && (resource[1].length === 0)">
+                <label>{{'There are not texts for translate'| translate:'COMMON_TRANSLATE_PANEL.THERE_ARE_NOT_TEXT_FOR_TRANSLATE_LABEL'}}</label>
+              </div>
+            </div>
+
+          </article>
+
+        </section>
+        <ng-template #emptyTpl>
+          <section class="tpanel-body">
+            <article class="tpanel-section">
+              <div class="tpanel-section-header">
+                <i class="fa fa-tag"></i>
+                <label>{{'MAIN'| translate:'COMMON_TRANSLATE_PANEL.MAIN_LABEL'}}</label>
+              </div>
+              <div>
+                <div class="tpanel-form-group d-block">
+                  <label>{{'There are not texts for translate'| translate:'COMMON_TRANSLATE_PANEL.THERE_ARE_NOT_TEXT_FOR_TRANSLATE_LABEL'}}</label>
+                </div>
+              </div>
+            </article>
+          </section>
+        </ng-template>
+
+      </div>
+    </section>
+    -->

@@ -1,0 +1,75 @@
+<form-layout [title]="'Asset'| translate:'ACO_SEARCH_ASSET.TITLE'" iconClass="icon-acc-asset">
+  <card-layout [type]="1">
+    <header-actions>
+      <form class="form-horizontal" focusFirstInput customId="filterId">
+        <fieldset>
+          <div class="">
+            <label for="filter">
+              {{'Filter:' | translate:'ACO_SEARCH_ASSET.FILTER_LABEL'}}
+            </label>
+            <div class="form-group">
+              <input type="text" id="filterId" name="textName" componentNav prevComp="" [navNextOnlyTab]="true" nextComp="cbTypeId"
+                (onNextNavigation)="getAll()" (breakNavWithShiftEnter)="getAll()" (breakNavWithDownArrow)="dgAsset.focus()" class="form-control"
+                [(ngModel)]="filter" autocomplete="off" />
+              </div>
+              <label for="filter">
+                {{'Asset Type:' | translate:'ACO_SEARCH_ASSET.ASSET_TYPE_LABEL'}}
+              </label>
+              @if (!isModal) {
+                <div class="form-group">
+                  <combo-box #cbName componentNav navId="cbTypeId" prevComp="filterId" nextComp="searchButton" (breakNavWithShiftEnter)="getAll()"
+                    [(cbModel)]="selectedType" [enabled]="true" [itemsSource]="assetTypeList"
+                    (OnSelectionChanged)="onSelectionType($event)">
+                    <ng-template let-item="item">
+                      <b>{{item.Name}}</b>
+                    </ng-template>
+                  </combo-box>
+                </div>
+              }
+              <button type="button" id="searchButton" componentNav prevComp="cbTypeId" [navNextOnlyTab]="true" nextComp="gridId"
+                (click)="getAll()" class="ai-search">
+                {{'Search' | translate:'COMMON_FORMS.SEARCH_BUTTON' }}
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </header-actions>
+    </card-layout>
+    <card-layout [type]="2" [withContent]="true">
+      <header-actions>
+        @if (!isModal) {
+          <a [routerLink]="['/access-control/asset', 0]" class="ai-add">{{'Add'| translate:'COMMON_FORMS.ADD_BUTTON'}}</a>
+        }
+      </header-actions>
+      <div class="row">
+        <div class="col-xs-12">
+          <data-grid #dgAsset navId="gridId" componentNav prevComp="searchButton" [itemsSource]="assetList" [isLoading]="isLoading"
+            (onGridEnterPress)="onEnterPress($event)" (onDblClicked)="doubleClickEdit($event)" (onSelectedChanged)="selectAsset($event)">
+            <column field="Code" filterMatchMode="contains"
+            [header]="'Code' | translate: 'ACO_SEARCH_ASSET.CODE_GRID'"></column>
+            <column field="Name" filterMatchMode="contains"
+            [header]="'Name' | translate: 'ACO_SEARCH_ASSET.NAME_GRID'"></column>
+            <column field="DisplayName" filterMatchMode="contains"
+            [header]="'DisplayName' | translate: 'ACO_SEARCH_ASSET.DISPLAYNAME_GRID'"></column>
+            <column field="AssetType.Name" filterMatchMode="contains"
+            [header]="'AssetType' | translate: 'ACO_SEARCH_ASSET.ASSETTYPE_GRID'"></column>
+            <column field="IconClass" filterMatchMode="contains"
+            [header]="'IconClass' | translate: 'ACO_SEARCH_ASSET.ICONCLASS_GRID'"></column>
+            <column field="RouterLink" filterMatchMode="contains"
+            [header]="'RouterLink' | translate: 'ACO_SEARCH_ASSET.ROUTERLINK_GRID'"></column>
+            @if (!isModal) {
+              <column [style]="{'text-align':'center'}"
+                [header]="'Actions' | translate: 'ACO_SEARCH_ASSET.ACTIONS_GRID'">
+                <ng-template let-col let-data="rowData" pTemplate type="body">
+                  <a [routerLink]="['/access-control/asset', data.Id]" class="ai-edit"> {{'Edit'| translate:'COMMON_GRID.EDIT_BUTTON'}} </a>
+                  <button type="button" class="ai-delete" id="delete-{{data.Id}}" (click)="delete(data.Id)">
+                    {{'Delete' | translate:'COMMON_GRID.DELETE_BUTTON'}}
+                  </button>
+                </ng-template>
+              </column>
+            }
+          </data-grid>
+        </div>
+      </div>
+    </card-layout>
+  </form-layout>

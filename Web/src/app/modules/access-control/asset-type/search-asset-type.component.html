@@ -1,0 +1,26 @@
+<form-layout iconClass="icon-acc-asset-type" [title]="'Asset Type' | translate: 'ACO_SEARCH_ASSET_TYPE.TITLE'">
+  <card-layout [type]="2" [withContent]="true">
+    <header-actions>
+      <a [routerLink]="['/access-control/asset-type',0]" class="ai-add">{{'Add'| translate:'COMMON_FORMS.ADD_BUTTON'}}</a>
+    </header-actions>
+  <div class="row">
+  <div class="col-xs-12">
+<data-grid #dgAssetType [itemsSource]="assetTypeList" [isLoading]="isLoading">
+  <column field="Name" filterMatchMode="contains" [header]="'Name' | translate:'ACO_SEARCH_ASSET_TYPE.NAME_GRID'"></column>
+  <column field="UseGroups" [style]="{'text-align':'center'}" [header]="'Use Groups' | translate:'ACO_SEARCH_ASSET_TYPE.USE_GROUPS_GRID'">
+ <ng-template let-col let-data="rowData" field="UseGroups" pTemplate type="checkbox">
+   <input type="checkbox" name="UseGroups" disabled [(ngModel)]="data.IsContext"/>
+ </ng-template>
+</column>
+<column [style]="{'text-align':'center'}" [header]="'Actions' | translate:'ACO_SEARCH_ASSET_TYPE.ACTIONS_GRID'">
+  <ng-template let-col let-data="rowData" pTemplate type="body">
+    <a [routerLink]="['/access-control/asset-type', data.Id]" class="ai-edit"> {{'Edit'| translate:'COMMON_GRID.EDIT_BUTTON'}}</a>
+    <button class="ai-delete" title="Delete Payment Type" (click)="delete(data.Id)">
+      {{'Delete' | translate:'COMMON_GRID.DELETE_BUTTON'}}</button>
+  </ng-template>
+</column>
+</data-grid>
+</div>
+</div>
+</card-layout>
+</form-layout>

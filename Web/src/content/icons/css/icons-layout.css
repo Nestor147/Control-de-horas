@@ -1,0 +1,48 @@
+.icon-lay-add-edit {
+  background: var(--url-sprite-layout) 0 0 no-repeat;
+}
+.icon-lay-calculation-book {
+  background: var(--url-sprite-layout) 6.666666666666667% 0 no-repeat;
+}
+.icon-lay-configuration {
+  background: var(--url-sprite-layout) 13.333333333333334% 0 no-repeat;
+}
+.icon-lay-drill-action {
+  background: var(--url-sprite-layout) 20% 0 no-repeat;
+}
+.icon-lay-filter-action {
+  background: var(--url-sprite-layout) 26.666666666666668% 0 no-repeat;
+}
+.icon-lay-filter-result {
+  background: var(--url-sprite-layout) 33.333333333333336% 0 no-repeat;
+}
+.icon-lay-list {
+  background: var(--url-sprite-layout) 40% 0 no-repeat;
+}
+.icon-lay-location {
+  background: var(--url-sprite-layout) 46.666666666666664% 0 no-repeat;
+}
+.icon-lay-report {
+  background: var(--url-sprite-layout) 53.333333333333336% 0 no-repeat;
+}
+.icon-lay-report-config {
+  background: var(--url-sprite-layout) 60% 0 no-repeat;
+}
+.icon-lay-report-more-config {
+  background: var(--url-sprite-layout) 66.66666666666667% 0 no-repeat;
+}
+.icon-lay-source {
+  background: var(--url-sprite-layout) 73.33333333333333% 0 no-repeat;
+}
+.icon-lay-spreadsheet {
+  background: var(--url-sprite-layout) 80% 0 no-repeat;
+}
+.icon-lay-target {
+  background: var(--url-sprite-layout) 86.66666666666667% 0 no-repeat;
+}
+.icon-lay-tree {
+  background: var(--url-sprite-layout) 93.33333333333333% 0 no-repeat;
+}
+.icon-lay-two-factor-authentication {
+  background: var(--url-sprite-layout) 100% 0 no-repeat;
+}

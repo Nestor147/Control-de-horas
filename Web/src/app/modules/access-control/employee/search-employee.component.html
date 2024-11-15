@@ -1,0 +1,46 @@
+<form-layout [title]="'UEmployee' | translate:'ACO_SEARCH_USER_SYSTEM.TITLE'" iconClass="icon-acc-user-system">
+  <card-layout [type]="inputLayoutSearch" [showExpandBtn]="false">
+    <header-actions>
+      <label for="txtFilter">
+        {{'Filter by Email and Name:' | translate:'ACO_SEARCH_USER_SYSTEM.FILTER_EMAIL_NAME_LABEL' }}
+      </label>
+
+      <div class="col-lg-3 form-group">
+        <form focusFirstInput customId="txtFilter">
+          <input id="txtFilter" name="textFilter" type="text" class="form-control" [(ngModel)]="filter"
+                 prevComp="btnSearchAvAccountsNavId" nextComp="btnSearch"  (keydown)="searchCountry($event)" />
+        </form>
+      </div>
+      <button id="btnSearch" class="ai-search" (click)="getAll()" type="button">
+        {{'Search' | translate:'COMMON_FORMS.SEARCH_BUTTON' }}
+      </button>
+    </header-actions>
+  </card-layout>
+  <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+    <header-actions>
+      <a  [routerLink]="['/access-control/employee', 0]" class="ai-add">{{'Add'| translate:'COMMON_FORMS.ADD_BUTTON'}}</a>
+    </header-actions>
+    <div class="form-group">
+      <data-grid #gridEmployee [itemsSource]="Employees" [isLoading]="isLoading" (onDblClicked)="onDblClicked($event)" [dataPager]="pagerOne" (onGridEnterPress)="onEnterPress($event)">
+        <column field="Email" filterMatchMode="contains" [header]="'Email' | translate: 'ACO_SEARCH_USER_SYSTEM.EMAIL_GRID'"></column>
+        <column field="Name" filterMatchMode="contains" [header]="'Name' | translate: 'ACO_SEARCH_USER_SYSTEM.NAME_GRID'"></column>
+        <column field="active" filterMatchMode="contains" [style]="{'text-align':'center'}"[header]="'Active' | translate:'ACO_SEARCH_USER_SYSTEM.ACTIVE_GRID'">
+          <ng-template let-col let-data="rowData"  pTemplate type="checkbox">
+            <input type="checkbox" name="active" disabled [(ngModel)]="data.active"/>
+          </ng-template>
+        </column>
+        <column field="Role.Name" filterMatchMode="contains" [header]="'Role' | translate: 'ACO_SEARCH_USER_SYSTEM.ROLE_GRID'"></column>
+        <column [header]="'Actions' | translate: 'ACO_SEARCH_USER_SYSTEM.ACTIONS_GRID'" [style]="{'text-align':'center'}" [sortable]="false">
+          <ng-template let-col let-data="rowData" pTemplate type="body">
+            <a [routerLink]="['/access-control/employee', data.Id]" class="ai-edit"> {{'Edit'| translate:'COMMON_GRID.EDIT_BUTTON'}} </a>
+            <button class="ai-delete" (click)="delete(data.Id)">
+              {{'Delete' | translate:'COMMON_GRID.DELETE_BUTTON'}}</button>
+          </ng-template>
+        </column>
+      </data-grid>
+      <data-pager #pagerOne [itemsCount]="pager.TotalRows" [(itemsByPage)]="pager.RowsByPage" (pageChange)="onPageChange($event);"></data-pager>
+    </div>
+  </card-layout>
+</form-layout>
+
+

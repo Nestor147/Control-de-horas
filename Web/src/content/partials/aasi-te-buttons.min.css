@@ -1,0 +1,202 @@
+@keyframes pulse {
+  0%, 100% {
+    background-color: rgb(var(--aasi-color-rgb-base));
+    border: 1px solid rgb(var(--aasi-color-rgb-base))
+  }
+  50% {
+    background-color: rgba(var(--aasi-color-rgb-base), 0.7);
+    border-color: rgba(var(--aasi-color-rgb-base), 0.7);
+    -webkit-box-shadow: 0 0 5px rgba(var(--aasi-color-rgb-base), 0.8);
+    -moz-box-shadow: 0 0 5px rgba(var(--aasi-color-rgb-base), 0.8);
+    -ms-box-shadow: 0 0 5px rgba(var(--aasi-color-rgb-base), 0.8);
+    -o-box-shadow: 0 0 5px rgba(var(--aasi-color-rgb-base), 0.8);
+    box-shadow: 0 0 5px rgba(var(--aasi-color-rgb-base), 0.8)
+  }
+}
+
+button[class*=tez-] {
+  background-color: var(--aasi-color-white-base);
+  margin-bottom: 8px;
+  margin-left: 5px;
+  border: 1px solid transparent;
+  color: var(--aasi-color-base);
+  cursor: pointer;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  line-height: 1;
+  padding: 5px 8px;
+  border-radius: 6px;
+  text-overflow: clip;
+  max-width: 75px;
+  -webkit-transition: background 200ms ease-in-out, box-shadow 200ms ease, border 200ms ease;
+  -moz-transition: background 200ms ease-in-out, box-shadow 200ms ease, border 200ms ease;
+  -ms-transition: background 200ms ease-in-out, box-shadow 200ms ease, border 200ms ease;
+  -o-transition: background 200ms ease-in-out, box-shadow 200ms ease, border 200ms ease;
+  transition: background 200ms ease-in-out, box-shadow 200ms ease, border 200ms ease
+}
+
+button[class*=tez-]::before {
+  content: "";
+  display: flex;
+  margin: auto auto 8px;
+  height: 50px;
+  width: 50px;
+  background-size: cover
+}
+
+button[class*=tez-]:focus, button[class*=tez-]:active {
+  outline: none;
+  animation: pulse;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  background-color: rgba(var(--aasi-color-rgb-base), 0.7);
+  border-color: rgba(var(--aasi-color-rgb-base), 0.7);
+  -webkit-box-shadow: 0 0 5px rgba(var(--aasi-color-rgb-base), 0.8);
+  -moz-box-shadow: 0 0 5px rgba(var(--aasi-color-rgb-base), 0.8);
+  -ms-box-shadow: 0 0 5px rgba(var(--aasi-color-rgb-base), 0.8);
+  -o-box-shadow: 0 0 5px rgba(var(--aasi-color-rgb-base), 0.8);
+  box-shadow: 0 0 5px rgba(var(--aasi-color-rgb-base), 0.8);
+  color: var(--aasi-color-white-base)
+}
+
+button[class*=tez-]:focus::before, button[class*=tez-]:active::before {
+  background-size: cover
+}
+
+button[class*=tez-]:hover {
+  border: 1px solid var(--aasi-color-base)
+}
+
+button[class*=tez-][disabled] {
+  background-color: var(--aasi-color-gray-border);
+  border: 1px solid var(--aasi-color-gray-border);
+  cursor: default;
+  color: var(--aasi-color-white-base)
+}
+
+button[class*=tez-][disabled]::before {
+  background-size: cover
+}
+
+button[class*=tez-][disabled]:hover, button[class*=tez-][disabled]:focus {
+  background-color: var(--aasi-color-gray-border);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  animation: unset
+}
+
+button[class*=tez-]:first-of-type {
+  margin-left: 0
+}
+
+@-moz-document url-prefix() {
+}
+
+[class*=tez-wire-transfer]::before {
+  background: var(--url-sprite-transaction-entry) 0 0 no-repeat
+}
+
+[class*=tez-wire-transfer]:active::before, [class*=tez-wire-transfer]:focus::before, [class*=tez-wire-transfer][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 0 0 no-repeat
+}
+
+[class*=tez-apdownload]::before {
+  background: var(--url-sprite-transaction-entry) 10% 0 no-repeat
+}
+
+[class*=tez-apdownload]:active::before, [class*=tez-apdownload]:focus::before, [class*=tez-apdownload][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 10% 0
+}
+
+[class*=tez-ardownload]::before {
+  background: var(--url-sprite-transaction-entry) 20% 0 no-repeat
+}
+
+[class*=tez-ardownload]:active::before, [class*=tez-ardownload]:focus::before, [class*=tez-ardownload][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 20% 0
+}
+
+[class*=tez-issue-check]::before {
+  background: var(--url-sprite-transaction-entry) 30% 0 no-repeat
+}
+
+[class*=tez-issue-check]:active::before, [class*=tez-issue-check]:focus::before, [class*=tez-issue-check][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 30% 0
+}
+
+[class*=tez-issue-invoice]::before {
+  background: var(--url-sprite-transaction-entry) 40% 0 no-repeat
+}
+
+[class*=tez-issue-invoice]:active::before, [class*=tez-issue-invoice]:focus::before, [class*=tez-issue-invoice][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 40% 0
+}
+
+[class*=tez-issue-receipt]::before {
+  background: var(--url-sprite-transaction-entry) 50% 0 no-repeat
+}
+
+[class*=tez-issue-receipt]:active::before, [class*=tez-issue-receipt]:focus::before, [class*=tez-issue-receipt][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 50% 0
+}
+
+[class*=tez-recurring-entry]::before {
+  background: var(--url-sprite-transaction-entry) 60% 0 no-repeat
+}
+
+[class*=tez-recurring-entry]:active::before, [class*=tez-recurring-entry]:focus::before, [class*=tez-recurring-entry][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 60% 0
+}
+
+[class*=tez-void-wire-transfer]::before {
+  background: var(--url-sprite-transaction-entry) 70% 0 no-repeat
+}
+
+[class*=tez-void-wire-transfer]:active::before, [class*=tez-void-wire-transfer]:focus::before, [class*=tez-void-wire-transfer][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 70% 0
+}
+
+[class*=tez-void-check]::before {
+  background: var(--url-sprite-transaction-entry) 80% 0 no-repeat
+}
+
+[class*=tez-void-check]:active::before, [class*=tez-void-check]:focus::before, [class*=tez-void-check][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 80% 0
+}
+
+[class*=tez-void-invoice]::before {
+  background: var(--url-sprite-transaction-entry) 90% 0 no-repeat
+}
+
+[class*=tez-void-invoice]:active::before, [class*=tez-void-invoice]:focus::before, [class*=tez-void-invoice][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 90% 0
+}
+
+[class*=tez-void-receipt]::before {
+  background: var(--url-sprite-transaction-entry) 100% 0 no-repeat
+}
+
+[class*=tez-void-receipt]:active::before, [class*=tez-void-receipt]:focus::before, [class*=tez-void-receipt][disabled]::before {
+  background: var(--url-sprite-white-mi-transaction-entry) 100% 0
+}
+
+[class*=tez-ach-direct-debit]::before {
+  background: var(--url-sprite-documents) 4.39% 0 no-repeat
+}
+
+[class*=tez-ach-direct-debit]:active::before, [class*=tez-ach-direct-debit]:focus::before, [class*=tez-ach-direct-debit][disabled]::before {
+  background: var(--url-sprite-white-mi-documents) 4.39% 0
+}
+
+[class*=tez-vo-ach-direct-debit]::before {
+  background: var(--url-sprite-documents) 73.91304347826087% 0 no-repeat
+}
+
+[class*=tez-vo-ach-direct-debit]::active::before, [class*=tez-vo-ach-direct-debit]:focus::before, [class*=tez-vo-ach-direct-debit][disabled]::before {
+  background: var(--url-sprite-white-mi-documents) 73.91304347826087% 0
+}

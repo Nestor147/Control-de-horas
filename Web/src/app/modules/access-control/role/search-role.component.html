@@ -1,0 +1,51 @@
+<form-layout iconClass="icon-acc-role" [title]="'Role'| translate:'ACO_SEARCH_ROLE.TITLE'">
+  <card-layout [type]="1">
+    <header-actions>
+      <form class="form-horizontal" focusFirstInput customId="filterId">
+        <fieldset>
+          <div class="col-lg-12">
+            <label for="filter">
+              {{'Filter by Name and Description:' | translate:'ACO_SEARCH_ROLE.FILTER_NAME_DESCRIPTION_LABEL'}}
+            </label>
+            <div class="form-group">
+              <input type="text" id="filter" name="textName" componentNav [navNextOnlyTab]="true" (onNextNavigation)="searchRole()" (breakNavWithDownArrow)="dgAsset.autoFocusAndSelectFirstItem()" nextComp="searchButton" class="form-control"
+                [(ngModel)]="filter" autocomplete="off"/>
+              </div>
+              <button type="button" id="searchButton" componentNav prevComp="filter" (breakNavWithDownArrow)="dgAsset.autoFocusAndSelectFirstItem()" [navNextOnlyTab]="true" nextComp="dgAsset" (click)="searchRole()" class="ai-search">{{'Search' | translate:'COMMON_FORMS.SEARCH_BUTTON' }}
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </header-actions>
+    </card-layout>
+
+    <card-layout [type]="2" [withContent]="true">
+      <header-actions>
+        <a  [routerLink]="['/access-control/role', 0]" class="ai-add">{{'Add'| translate:'COMMON_FORMS.ADD_BUTTON'}}</a>
+      </header-actions>
+      <div class="row">
+        <div class="col-xs-12">
+          <data-grid #dgAsset navId="dgAsset" componentNav prevComp="searchButton" [itemsSource]="roleList" [isLoading]="isLoading"
+            (onGridEnterPress)="onEnterPress($event)" (onDblClicked)="doubleClickEdit($event)"
+            (onSelectedChanged)="mainGridSelected($event)">
+            <column field="Name" filterMatchMode="contains"
+            [header]="'Name'| translate:'ACO_SEARCH_ROLE.NAME_GRID'"></column>
+            <column field="Description" filterMatchMode="contains"
+            [header]="'Description'| translate:'ACO_SEARCH_ROLE.DESCRIPTION_GRID'"></column>
+            @if (!isModal) {
+              <column [header]="'Actions'| translate:'ACO_SEARCH_ROLE.ACTIONS_GRID'" [style]="{'text-align':'center'}"
+                [sortable]="false">
+                <ng-template let-col let-data="rowData" pTemplate type="body">
+                  <a [routerLink]="['/access-control/role', data.Id]" class="ai-edit"> {{'Edit'| translate:'COMMON_GRID.EDIT_BUTTON'}}</a>
+                  <button type="button" class="ai-delete" id="delete-{{data.Id}}" (click)="delete(data,'delete-' + data.Id)">
+                    {{'Delete' | translate:'COMMON_GRID.DELETE_BUTTON'}}
+                  </button>
+                </ng-template>
+              </column>
+            }
+          </data-grid>
+
+        </div>
+      </div>
+    </card-layout>
+  </form-layout>

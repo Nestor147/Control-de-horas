@@ -1,0 +1,21 @@
+.icon-mi-accepted-notification {
+  background: var(--url-sprite-modal) 0 0 no-repeat;
+}
+.icon-mi-base {
+  background: var(--url-sprite-modal) 16.666666666666668% 0 no-repeat;
+}
+.icon-mi-image-viewer {
+  background: var(--url-sprite-modal) 33.333333333333336% 0 no-repeat;
+}
+.icon-mi-images-viewer {
+  background: var(--url-sprite-modal) 50% 0 no-repeat;
+}
+.icon-mi-notice-details {
+  background: var(--url-sprite-modal) 66.66666666666667% 0 no-repeat;
+}
+.icon-mi-notification-release {
+  background: var(--url-sprite-modal) 83.33333333333333% 0 no-repeat;
+}
+.icon-mi-rejected-notification {
+  background: var(--url-sprite-modal) 100% 0 no-repeat;
+}

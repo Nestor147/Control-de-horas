@@ -1,0 +1,62 @@
+<div class="row">
+  <!-- {{currentView}}- {{masterType}} -->
+  <div class="pull-right">
+    @if (currentView != 'DETAIL' || masterType =='SIDE_BY_SIDE') {
+      <section>
+        @if (showModeView) {
+          <div class="btn-group">
+            <a (click)='changeMasterType("MASTER_DETAIL")' [class.text-primary]="masterType == 'MASTER_DETAIL'">
+              <span class="fa fa-table fa-2x"></span>
+            </a>
+            <a (click)='changeMasterType("SIDE_BY_SIDE")' [class.text-primary]="masterType == 'SIDE_BY_SIDE'">
+              <span class="fa fa-columns fa-2x"></span>
+            </a>
+          </div>
+        }
+      </section>
+    }
+    <!-- <button *ngIf="showDetail && masterType =='MASTER_DETAIL'" type="button" (click)="showMasterView()" class="ai-return">Back </button> -->
+  </div>
+</div>
+
+
+
+<div [ngClass]="{'col-md-6': masterType=='SIDE_BY_SIDE'}" (keydown)="onKeyDown($event)">
+  @if (masterType=='SIDE_BY_SIDE') {
+    <section class="row-header">
+      <h6>{{masterTitle}}</h6>
+    </section>
+  }
+
+
+<div [hidden]="!showMaster">
+  <ng-content select="master-view">
+  </ng-content>
+</div>
+<div [hidden]="!showDetail" [ngClass]="{'col-md-6': masterType=='SIDE_BY_SIDE'}">
+  @if (masterType=='SIDE_BY_SIDE') {
+    <section>
+      <div class="row row-header">
+        <div class="pull-left">
+          <h6>{{detailTitle}}</h6>
+        </div>
+        <div class="pull-right">
+          <label style="margin-right: 5px;" >{{realCurrentIndex}} of {{totalRows}}</label>
+          <button type="button" class="btn btn-sm btn-default" title="Prev. [Ctrl+Up]" (click)="prevDetail()" >
+            <i aria-hidden="true" class="fa fa-arrow-up"></i>
+          </button>
+          <button type="button" class="btn btn-sm btn-default" title="Next. [Ctrl+Down]" (click)="nextDetail()" >
+            <i aria-hidden="true" class="fa fa-arrow-down"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+  }
+  <!-- <span *ngIf="masterType=='SIDE_BY_SIDE'" class="text-bold"> Area Form
+  <hr/>
+</span> -->
+<div>
+  <ng-content select="detail-view"></ng-content>
+</div>
+</div>
+</div>

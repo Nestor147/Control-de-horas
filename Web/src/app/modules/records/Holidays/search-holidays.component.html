@@ -1,0 +1,40 @@
+<form-layout [title]="'Holidays'" iconClass="icon-not-notice-conference">
+    <card-layout [type]="inputLayoutSearch" [showExpandBtn]="false"  [withContent]="true">
+      <header-actions>
+        <label for="txtFilter">{{'Filter by Description:'}}</label>
+        <div class="col-lg-3 form-group">
+          <form focusFirstInput customId="txtFilter">
+            <input id="txtFilter" name="textFilter" type="text" class="form-control" [(ngModel)]="filter"
+                   prevComp="btnSearchAvAccountsNavId" nextComp="btnSearch" (keydown)="searchHolidays($event)" />
+          </form>
+        </div>
+        <button id="btnSearch" class="ai-search" (click)="searchByFilter()" type="button">
+          {{'Search'}}
+        </button>
+      </header-actions>
+    </card-layout>
+  
+    <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+      <header-actions>
+        <a [routerLink]="['/records/holidays', 0]" class="ai-add">{{'Add'}}</a>
+      </header-actions>
+      <div class="form-group">
+        <data-grid #gridHolidays [itemsSource]="holidays" [isLoading]="isLoading"
+                   (onDblClicked)="onDblClicked($event)" (onGridEnterPress)="onEnterPress($event)">
+          <column field="HolidayDate" filterMatchMode="contains" [header]="'Holiday Date'"></column>
+          <column field="Description" filterMatchMode="contains" [header]="'Description'"></column>
+          <column [headerSize]="18" [header]="'Actions'" [style]="{'text-align':'center'}" [sortable]="false">
+            <ng-template let-col let-data="rowData" pTemplate type="body">
+              <a [routerLink]="['/records/holidays', data.Id]" class="ai-edit">{{'Edit'}}</a>
+              <button class="ai-delete" title="Delete Holiday" (click)="delete(data.Id)">
+                {{'Delete'}}
+              </button>
+            </ng-template>
+          </column>
+        </data-grid>
+  
+        <data-pager #pagerOne [itemsCount]="pager.TotalRows" [(itemsByPage)]="pager.RowsByPage" (pageChange)="onPageChange($event)"></data-pager>
+      </div>
+    </card-layout>
+  </form-layout>
+  

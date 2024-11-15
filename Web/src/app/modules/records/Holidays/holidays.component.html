@@ -1,0 +1,42 @@
+<form-layout [title]="'Holiday'" iconClass="icon-rec-project">
+    <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+      <header-actions>
+        <button type="button" id="btnSaveId" name="buttonSave"
+                [class.ai-loading]="isLoading" class="ai-save" title="Save" (click)="save()"
+                componentNav prevComp="btnSearchId" [navNextOnlyTab]="true"
+                [disabled]="isLoading || isLoadingDelete"
+                [nextComp]="canDelete() ? 'btnDeleteId' : 'btnSearchId'">
+          {{'Save'}}
+        </button>
+        <button type="button" id="btnDeleteId" class="ai-delete" [disabled]="!canDelete()"
+                [class.ai-loading]="isLoadingDelete"
+                (click)="delete()" componentNav prevComp="btnSaveId" nextComp="btnSearchId" [navNextOnlyTab]="true">
+          {{'Delete'}}
+        </button>
+        <a [routerLink]="['/records/search-holidays']" prevComp="idName" class="ai-search" componentNav id="btnSearchId"
+           prevComp="idDescription" [navNextOnlyTab]="true">
+          {{'Search'}}
+        </a>
+      </header-actions>
+  
+      <form [formGroup]="formulary" errorTailor class="form-horizontal" focusFirstInput>
+  
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'Description:'}}</label>
+          <div class="col-md-4">
+            <input id="idDescription" componentNav prevComp="btnSaveId" nextComp="idDescription" type="text" name="txtDescription" class="form-control" formControlName="Description"
+                   [(ngModel)]="holidays.Description" />
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-3 offset col-md-4">{{'Holiday Date'}}</label>
+          <div class="col-md-4">
+            <input id="idHolidayDate" componentNav prevComp="idName" nextComp="btnSaveId" type="datetime-local" name="txtEndDate" class="form-control" formControlName="HolidayDate"
+                   [(ngModel)]="holidays.HolidayDate" />
+          </div>
+        </div>
+      </form>
+    </card-layout>
+  </form-layout>
+  

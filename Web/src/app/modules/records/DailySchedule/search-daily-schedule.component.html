@@ -1,0 +1,43 @@
+<form-layout [title]="'Daily Schedules'" iconClass="icon-not-notice-conference">
+    <card-layout [type]="inputLayoutSearch" [showExpandBtn]="false">
+      <header-actions>
+        <label for="txtFilter">
+          {{'Filter by Schedule Type Name:'}}
+        </label>
+  
+        <div class="col-lg-3 form-group">
+          <form focusFirstInput customId="txtFilter">
+            <input id="txtFilter" name="textFilter" type="text" class="form-control" [(ngModel)]="filter"
+                   prevComp="btnSearchAvAccountsNavId" nextComp="btnSearch" (keydown)="searchDailySchedule($event)" />
+          </form>
+        </div>
+        <button id="btnSearch" class="ai-search" (click)="searchByFilter()" type="button">
+          {{'Search'}}
+        </button>
+      </header-actions>
+    </card-layout>
+    <card-layout [type]="inputLayout" [withContent]="true" [showExpandBtn]="false">
+      <header-actions>
+        <a [routerLink]="['/records/daily-schedule', 0]" class="ai-add">{{'Add'}}</a>
+      </header-actions>
+      <div class="form-group">
+        <data-grid #gridDailySchedules [itemsSource]="dailySchedules" [isLoading]="isLoading"
+                   (onDblClicked)="onDblClicked($event)" (onGridEnterPress)="onEnterPress($event)">
+                   <column field="ScheduleType.Name" filterMatchMode="contains" [header]="'Schedule Type Name'"></column>
+                   <column field="dayOfWeekName" filterMatchMode="contains" [header]="'Day of Week'"></column>
+                   <column field="InitialTime" filterMatchMode="contains" [header]="'InitialTime'"></column>
+                   <column field="EndTime" filterMatchMode="contains" [header]="'EndTime'"></column>
+                   <column [headerSize]="18" [header]="'Actions'" [style]="{'text-align':'center'}" [sortable]="false">
+                     <ng-template let-col let-data="rowData" pTemplate type="body">
+                       <a [routerLink]="['/records/daily-schedule', data.Id]" class="ai-edit">{{'Edit'}}</a>
+                       <button class="ai-delete" title="Delete Daily Schedule" (click)="delete(data.Id)">
+                         {{'Delete'}}
+                       </button>
+                     </ng-template>
+                   </column>    
+        </data-grid>
+        <data-pager [itemsCount]="pager.TotalRows" [(itemsByPage)]="pager.RowsByPage" (pageChange)="onPageChange($event)"></data-pager>
+      </div>
+    </card-layout>
+  </form-layout>
+  

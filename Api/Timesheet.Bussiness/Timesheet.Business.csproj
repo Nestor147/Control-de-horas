@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Accesscontrol\2hwksm2h.uln~" />
+    <None Remove="Report\Layout\ReportWorkAttendance.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Report\Layout\ReportWorkAttendance.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.12" />
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.22" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Biometric\Biometric.csproj" />
+    <ProjectReference Include="..\Timesheet.EFContext\Timesheet.EFContext.csproj" />
+  </ItemGroup>
+
+</Project>

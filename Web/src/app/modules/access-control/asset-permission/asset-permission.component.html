@@ -1,0 +1,81 @@
+<form-layout [title]="'Asset Permission' | translate:'ACO_ASSET_PERMISSION.TITLE'" iconClass="icon-rec-asset-permission">
+  <card-layout [type]="1">
+    <header-actions>
+      <form class="form-horizontal" focusFirstInput customId="filterId">
+        <fieldset>
+          <div class="">
+            <label for="filter">
+              {{'Filter:' | translate:'ACO_ASSET_PERMISSION.FILTER_LABEL'}}
+            </label>
+            <div class="form-group">
+              <input type="text" id="filterId" name="textName" componentNav [navNextOnlyTab]="true" nextComp="cbTypeId"
+                     (breakNavWithDownArrow)="dgAssetPermission.focus()" class="form-control"
+                     [(ngModel)]="filter" autocomplete="off" />
+            </div>
+            <label for="filter">
+              {{'Type:'| translate:'ACO_ASSET_PERMISSION.TYPE_LABEL'}}
+            </label>
+            <div class="col-lg-2 form-group">
+              <combo-box #cbName [(cbModel)]="selectedTypeId" componentNav navId="cbTypeId" prevComp="filterId" nextComp="cbRoleId" [itemsSource]="assetTypeList">
+                <ng-template let-item="item">
+                  <b>{{item.Name}}</b>
+                </ng-template>
+              </combo-box>
+            </div>
+            <label for="role">
+              {{'Role:'| translate:'ACO_ASSET_PERMISSION.ROLE_LABEL'}}
+            </label>
+            <div class="col-lg-2 form-group">
+              <combo-box #cbName [(cbModel)]="selectedRole" componentNav navId="cbRoleId" prevComp="cbTypeId" nextComp="searchButton" [itemsSource]="roleList">
+                <ng-template let-item="item">
+                  <b>{{item.Name}}</b>
+                </ng-template>
+              </combo-box>
+            </div>
+            <button type="button" id="searchButton" componentNav prevComp="cbRoleId" [navNextOnlyTab]="true" nextComp="allowAllButton"
+                    class="ai-search" (click)="getAll()">
+              {{'Search' | translate:'COMMON_FORMS.SEARCH_BUTTON' }}
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </header-actions>
+  </card-layout>
+  <card-layout [type]="2" [withContent]="true">
+    <header-actions>
+      <button type="button" id="allowAllButton" componentNav prevComp="searchButton" [navNextOnlyTab]="true" nextComp="reverseButton" class="ai-selection" (click)="allowAll()">
+        {{'Allow All' | translate:'ACO_ASSET_PERMISSION.ALLOW_ALL_BUTTON' }}
+      </button>
+      <button type="button" id="reverseButton" componentNav prevComp="allowAllButton" [navNextOnlyTab]="true" nextComp="reverteButton" class="ai-reverter" (click)="reverseAllDoNo()">
+        {{'Reverse Allowed/ Do Not Allow'| translate:'ACO_ASSET_PERMISSION.REVERSE_ALLOWED_DO_NOT_ALLOW_BUTTON'}}
+      </button>
+      <button type="button" id="reverteButton" componentNav prevComp="reverseButton" [navNextOnlyTab]="true" nextComp="saveButton" class="ai-reverter" (click)="reverteChanges()">
+        {{'Revert Changes'| translate:'ACO_ASSET_PERMISSION.REVERT_CHANGES_BUTTON'}}
+      </button>
+      <button type="button" id="saveButton" componentNav prevComp="reverteButton" [navNextOnlyTab]="true" nextComp="printReport" class="ai-save" (click)="save()">
+        {{'Save' | translate:'COMMON_FORMS.SAVE_BUTTON'}}
+      </button>
+      <button type="button" id="printReport" componentNav prevComp="saveButton" [navNextOnlyTab]="true" nextComp="gridId" class="ai-print" (click)="print()">
+        {{'Print' | translate:'COMMON_FORMS.PRINT_BUTTON'}}
+      </button>
+
+    </header-actions>
+    <div class="row">
+      <div class="col-xs-12">
+        <data-grid #dgAssetPermission navId="gridId" componentNav prevComp="searchButton" [itemsSource]="assetPermissionList" [isLoading]="isLoading">
+          <column field="IsSelected" [style]="{'text-align':'center'}" [header]="'Permited' | translate:'ACO_ASSET_PERMISSION.PERMITED_GRID'">
+            <ng-template let-col let-data="rowData" field="IsSelected" pTemplate type="checkbox">
+              <input type="checkbox" [attr.disabled]="isDisabled ? true : null" name="IsSelected" [(ngModel)]="data.IsSelected" />
+            </ng-template>
+          </column>
+          <column field="Asset.DisplayName" filterMatchMode="contains"
+                  [header]="'available menu items' | translate:'ACO_ASSET_PERMISSION.AVAILABLE_MENU_ITEMS_GRID'"></column>
+          <column field="Asset.Code" filterMatchMode="contains"
+                  [header]="'Code'| translate:'ACO_ASSET_PERMISSION.CODE_GRID'"></column>
+          <column field="Asset.GroupName" filterMatchMode="contains"
+                  [header]="'Group'| translate:'ACO_ASSET_PERMISSION.GROUP_GRID'"></column>
+        </data-grid>
+      </div>
+    </div>
+  </card-layout>
+</form-layout>

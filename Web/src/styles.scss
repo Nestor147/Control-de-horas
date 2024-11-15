@@ -1,0 +1,215 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@aasinet/ngx-controls/assets/styles/aasi-variables.min.css";
+
+@import "../node_modules/@aasinet/ngx-controls/assets/styles/bootstrap.min.css";
+@import "../node_modules/@aasinet/ngx-controls/assets/styles/bootstrap.reset.css";
+// @import "assets/css/layout-global-styles.css";
+
+@import 'content/font.css';
+@import 'content/animate/animate.css';
+@import 'content/home.css';
+@import 'content/dsa.css';
+@import 'content/dsa.reset.css';
+@import 'content/aans-dialog-display.scss';
+
+.p-tree {
+    border: 1px solid #19191900 !important;
+    background: #32323200 !important;
+    color: #888888 !important;
+}
+
+.p-inputtext {
+    color: #000000 !important;
+    background: #ffffff00 !important;
+    border-radius: 5px !important;
+}
+
+.p-inputtext:focus {
+    border: 1px solid #4b4b4b !important;
+}
+.p-inputtext:hover {
+    border: 1px solid #4b4b4b !important;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content {
+    padding: 0px !important;
+}
+
+label[class*="col-"] {
+    padding-top: 2px;
+}
+
+.imgCustom img {
+  width: 100%;
+}
+.aasi-dialog .dialog-display section {
+  padding: 5px !important;
+}
+.aasi-dialog .dialog-display p:first-of-type {
+  overflow-y: revert !important;
+}
+
+.rn-small{
+  width: auto !important;
+}
+.aasi-dialog .dialog-display section p {
+  display: inline;
+}
+
+.aasi-loader {
+  width: 200px;
+  height: 250px;
+  position: relative;
+  animation: jump 1s
+}
+
+.aasi-loader .part-1 {
+  background: url("data:image/svg+xml;base64,PHN2ZyBiYXNlUHJvZmlsZT0idGlueSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSItNDEgNDIgMTcgMTciPjxwYXRoIGZpbGw9IiM4MTk0YTIiIGQ9Ik0tMzUuOSA0OS4zYy0xLjYgMS42LTIgMi4zLTIuMSAzLjUgMCAwLS4xLS4yLS4xLS40LS4xLS43IDAtMS4yLjItMS44LjMtMSAxLjEtMS44IDIuMi0yLjhsMS45LTEuOWMyLjEtMi4xIDIuNC0yLjUgMi41LTMuNHYxLjNjMCAxLjItMS41IDIuNi0yLjEgMy4ybC0yLjUgMi4zeiIvPjwvc3ZnPg==") 0 0 no-repeat;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  left: -1%;
+}
+
+.aasi-loader .part-2 {
+  background: url("data:image/svg+xml;base64,PHN2ZyBiYXNlUHJvZmlsZT0idGlueSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSItNDEgNDIgMTcgMTciPjxwYXRoIGZpbGw9IiM4MTk0YTIiIGQ9Ik0tMzEuMyA0NC42djEuM2MwIDEuMi0xLjUgMi42LTIuMSAzLjJsLTIuMiAyLjJjLS44LjgtMi4zIDIuMy0xLjcgMy44IDAgMCAwIC4xIDAgMC0uMi0uMS0uNC0uNS0uNS0xLjMtLjEtMS4zLjgtMi41IDEuOS0zLjZsMi4xLTIuMWMyLjItMi4yIDIuNC0yLjYgMi41LTMuNXoiLz48L3N2Zz4=") 0 0 no-repeat;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  position: absolute;
+  left: -1%
+}
+
+.aasi-loader .part-3 {
+  background: url("data:image/svg+xml;base64,PHN2ZyBiYXNlUHJvZmlsZT0idGlueSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSItNDEgNDIgMTcgMTciPjxwYXRoIGZpbGw9IiM4MTk0YTIiIGQ9Ik0tMzMuNSA1MS40Yy42LS42IDIuMS0yIDIuMS0zLjJ2LTEuM2MtLjEuOS0uMyAxLjMtMi41IDMuNGwtMiAyYy0uNy43LTEuNCAxLjUtMS40IDIuNyAwIC44LjQgMS40LjkgMS41LjIuMS4yIDAgLjIgMC0uOC0uNC0uNy0xLjguNi0zLjFsMi4xLTJ6Ii8+PC9zdmc+") 0 0 no-repeat;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  left: -1%
+}
+
+.aasi-loader .part-4 {
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjUwIj48cGF0aCBmaWxsPSIjODE5NEEyIiBkPSJNMTE5LjggNzAuOGM0LjggMi4yIDEyLjkgNi44IDIwIDE1LjQgNS4xIDYuMiA4IDEyLjIgOS42IDE2LjYgMCAuMy0uMS41LS4zLjYtLjMuMS0uNiAwLS44LS4yLS4xLS40LS4zLS43LS40LTEuMSAwIDAgMC0uMS0uMS0uMnMtLjItLjEtLjMtLjFjLS4yIDAtLjUtLjEtLjgtLjItLjktLjQtMS40LTEuMy0xLjctMS43LTEuNC0xLjctMS4xLTIuNy0yLjItMy41LS44LS42LTEuOS0xLTMuNS0xLTMuMy0uMS00LjYtMy4xLTUuMi01LjctLjEtLjUtLjMtMS0uNS0xLjUtLjYtMS40LTEuNC0yLjMtMS44LTIuNy0xLjktMi4yLTEuMS0zLjQtMy01LjgtMS0xLjMtMS4xLS43LTMuOC0zLjItMS44LTEuNy0yLjUtMi45LTQuNS00LS41LS4zLTEtLjUtMS4zLS42LS4yLS4yLS4zLS41LS4yLS43IDAtLjMuNC0uNS44LS40eiIvPjwvc3ZnPg==") 0 0 no-repeat;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  animation: gulp 500ms linear 500ms infinite;
+  animation-direction: alternate
+}
+
+.aasi-loader .part-5 {
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjUwIj48cGF0aCBmaWxsPSIjODE5NEEyIiBkPSJNMTYxLjQgMTE5LjN2LS40YzAtLjMtLjItLjQtLjUtLjMtLjEuMS0uMi4xLS40LjJsLTE4LjkgMTEuNGMtMSAuMy0xLjktLjEtMi4zLS43LS40LS43LS4yLTEuOC42LTIuNS4xLS4xLjMtLjIuNS0uM2guMWMxLjMtLjggMi41LTEuNSAzLjgtMi4zIDQuOC0yLjkgOS43LTUuOCAxNC41LTguOCAyLjYtMS42IDMuNC00LjUgMS44LTYuOS0xLjItMS44LTIuOS0yLjYtNS4yLTIuNmgtNTAuOWMtMi43LjEtNC45IDEuNS01LjYgMy45IDAgLjEgMCAuMy0uMi40djEuOWMuMSAwIC4xLjEuMS4yLjQgMS41IDEuNCAyLjUgMi44IDMuMyA2LjEgMy43IDEyLjEgNy4zIDE4LjIgMTEgMSAuNiAxLjQgMS45LjggMi43LS40LjctMS40IDEuMS0yLjMuOC02LjQtMy44LTEyLjctNy43LTE5LTExLjUtLjItLjEtLjQtLjMtLjctLjJ2MjYuMWMuMS42LjIgMS4zLjYgMS45IDEuMyAxLjkgMy4yIDIuOCA1LjYgMi44aDUwLjhjMy4xLS4yIDUuOC0yLjMgNS44LTUuNC0uMS04LjIgMC0xNi41IDAtMjQuN3ptLTI4LjggMTkuMWMtLjYuMi0uOS41LS45IDEuMXYxLjljMCAuNi0uMy45LS44LjloLTJjLS42IDAtLjktLjMtLjktLjlWMTQwYzAtMSAwLTEtMS0xLjItMS4yLS4yLTIuNC0uNS0zLjYtMS0uOS0uNC0xLS43LS43LTEuNmwuNi0yLjFjLjMtLjguNS0uOSAxLjItLjUgMS4zLjYgMi42IDEgNCAxLjIuOS4xIDEuOCAwIDIuNi0uMyAxLjUtLjcgMS44LTIuNS41LTMuNi0uNC0uNC0uOS0uNi0xLjUtLjktMS40LS42LTIuOC0xLjEtNC4xLTEuOC0yLjEtMS4yLTMuNC0zLTMuMi01LjUuMi0yLjkgMS44LTQuNiA0LjQtNS42IDEuMS0uNCAxLjEtLjQgMS4xLTEuNXYtMS4yYzAtLjkuMi0xIDEtMWguOGMxLjggMCAxLjggMCAxLjggMS44IDAgMS4zIDAgMS4zIDEuMyAxLjUgMSAuMiAxLjkuNCAyLjguOC41LjIuNy42LjUgMS4xLS4yLjgtLjQgMS42LS43IDIuMy0uMi43LS41LjgtMS4yLjUtMS40LS43LTIuOS0xLTQuNS0uOS0uNCAwLS44LjEtMS4yLjItMS4zLjYtMS42IDIuMS0uNCAzIC42LjUgMS4yLjggMS45IDEuMSAxLjIuNSAyLjQgMSAzLjUgMS42IDMuNiAyIDQuNiA2LjUgMiA5LjYtLjcgMS4zLTEuOSAyLTMuMyAyLjR6Ii8+PC9zdmc+") 0 0 no-repeat;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  animation: gulp 500ms linear 750ms infinite;
+  animation-direction: alternate
+}
+
+.aasi-loader .part-6 {
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyMDAiIGhlaWdodD0iMjUwIj48cGF0aCBmaWxsPSIjODE5NEEyIiBkPSJNMTA0LjUgMTUzLjFjLTMuNSAwLTYuNC0xLjUtOC4zLTQuMy0uNy0xLjEtLjktMi4yLTEtMi45di0uMmwtLjEtLjN2LTRjLTIuOC01LjEtNy44LTYuOC0xMy42LTYuNy0xLjguMS0zLjMtLjEtNC44LTEuMS0xLjYtMS0xLjctMi4xLTIuNy0yLjItMi4xLS4yLTQuNiA0LjctMy43IDUuNy45IDEgNC43LTEuOSA2LjYtLjMuMi4yLjQuNC41LjYuNC42LjcgMS44LS4yIDUtMS4zIDQuOC4xIDkuMyA0LjcgMTIuNCAyLjkgMS45IDIuNSA1IDIuMyA3LjgtLjMgNS41LjggMTAuNiAzLjIgMTUuNS41IDEuMS45IDIuNCAyLjIgMi4yIDEuMi0uMiAxLjctMS40IDEuNi0yLjctLjItMy40IDEuOS01LjkgMy4zLTguOCAyLjgtNS42IDcuOC05LjggMTAtMTUuN3ptMS41IDI3LjNjNC44LTEgMTIuOC0zLjIgMjEuMS04LjcgNy44LTUuMiAxMi43LTExLjIgMTUuNS0xNS4yLjItLjMuMS0uNy0uMS0uOC0uMi0uMi0uNy0uMS0xIC40LS42LjgtMS4xIDEuNS0xLjcgMi4zbC0uMi4yYy0uMS4xLS4yLjEtLjIuMS0uMy4xLS45LjItMS41LjUtLjIuMS0uMy4yLS4zLjItLjIuMS0uMy4zLS43LjYtMS41IDEuNi0yLjggMy4yLTUuMyAyLjktMi4xLS4yLTQgMS45LTUuNCAzLjgtLjkgMS4yLTEuOCAyLjEtMyAyLjktMS40IDEtMy4zIDEuOS0zLjggMy45IDAgMC0uNy41LTEuNyAxLjItMy43IDIuNC0xMC45IDQuMi0xMS45IDQuNC0uMy4xLS41LjQtLjQuNy4xLjUuNC42LjYuNnoiLz48L3N2Zz4=") 0 0 no-repeat;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  animation: gulp 500ms linear 1000ms infinite;
+  animation-direction: alternate
+}
+
+.circle {
+  animation: animate 1s linear infinite;
+  clip: rect(0, 125px, 125px, 75px);
+  height: 125px;
+  width: 125px;
+  position: absolute;
+  left: 15%;
+  top: 24%
+}
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+  .circle {
+      top: 35%
+  }
+}
+
+.circle:after {
+  animation: animate2 1s linear infinite;
+  clip: rect(0, 125px, 125px, 75px);
+  content: '';
+  border-radius: 50%;
+  height: 125px;
+  width: 125px;
+  position: absolute
+}
+
+@keyframes animate {
+  0% {
+      transform: rotate(0deg)
+  }
+  100% {
+      transform: rotate(220deg)
+  }
+}
+
+@keyframes animate2 {
+  0% {
+      box-shadow: inset #8194a2 0 0 0 2px;
+      transform: rotate(-140deg)
+  }
+  50% {
+      box-shadow: inset #8194a2 0 0 0 2px
+  }
+  100% {
+      box-shadow: inset #8194a2 0 0 0 2px;
+      transform: rotate(140deg)
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .aasi-loader {
+      transform: scale(0.5);
+      animation: jumpSmall 1s
+  }
+
+
+}
+
+@keyframes jumpSmall {
+  0% {
+      transform: scale(0.5)
+  }
+  50% {
+      transform: scale(1)
+  }
+  100% {
+      transform: scale(0.5)
+  }
+}
+
+@keyframes jump {
+  0% {
+      transform: scale(1)
+  }
+  50% {
+      transform: scale(2)
+  }
+  100% {
+      transform: scale(1)
+  }
+}
+
+@keyframes gulp {
+  0% {
+      transform: scale(1)
+  }
+  50% {
+      transform: scale(1)
+  }
+  100% {
+      transform: scale(1.1)
+  }
+}
